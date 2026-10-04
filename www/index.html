@@ -29,10 +29,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #202521;
-  --panel: #2A302C;
-  --panel-raised: #343B36;
-  --line: #48514B;
+  --bg: #000000;
+  --panel: #0A0A0A;
+  --panel-raised: #141414;
+  --line: #2E2E2E;
   --text: #E8EEE9;
   --muted: #AAB5AD;
   --dim: #7E8982;
@@ -52,9 +52,7 @@ html, body {
 
 body {
   padding: 20px 14px 60px;
-  background-image:
-    radial-gradient(circle at 15% 0%, rgba(120,184,154,0.07), transparent 40%),
-    radial-gradient(circle at 85% 10%, rgba(120,184,154,0.035), transparent 35%);
+  background-image: none;
 }
 
 .wrap { max-width: 580px; margin: 0 auto; }
@@ -1752,33 +1750,33 @@ h1 {
 
 <style id="ezzdigi-dark-gray-light-green-theme">
 :root{
-  --bg:#1d211f !important;
-  --panel:#252a27 !important;
-  --panel-raised:#2e3531 !important;
-  --line:#78b89a !important;
-  --text:#eef4f0 !important;
-  --muted:#b8c3bd !important;
-  --dim:#89958e !important;
+  --bg:#000000 !important;
+  --panel:#0A0A0A !important;
+  --panel-raised:#141414 !important;
+  --line:#2E2E2E !important;
+  --text:#eef0ee !important;
+  --muted:#b4b8b5 !important;
+  --dim:#858a87 !important;
   --green:#8fd3ad !important;
   --red:#c27d7d !important;
   --amber:#b9bf9d !important;
   --blue:#9bb8a8 !important;
   --purple:#a0bbaa !important;
 }
-html,body{background:#1d211f !important;color:#eef4f0 !important}
-body{background:linear-gradient(180deg,#1b1f1d 0%,#202521 100%) !important}
+html,body{background:#000000 !important;color:#eef0ee !important}
+body{background:#000000 !important;background-image:none !important}
 .card,.panel,.box,.widget,.modal-content,.table-wrap,.chart-wrap,.section,.stat-card{
-  background:#252a27 !important;
-  border:1px solid #78b89a !important;
-  box-shadow:0 0 0 1px rgba(143,211,173,.10),0 8px 24px rgba(0,0,0,.24) !important;
+  background:#0A0A0A !important;
+  border:1px solid #2E2E2E !important;
+  box-shadow:none !important;
 }
 button,.btn,.tab,.input,.select,select,input,textarea{
-  border-color:#78b89a !important;
+  border-color:#2E2E2E !important;
 }
 button:hover,.btn:hover,.tab:hover,.tab.active{
-  border-color:#9be0b9 !important;
+  border-color:#4a4a4a !important;
 }
-hr{border-color:#78b89a !important}
+hr{border-color:#2E2E2E !important}
 a{color:#9be0b9 !important}
 </style>
 
@@ -2937,7 +2935,6 @@ a{color:#9be0b9 !important}
       <div class="screener-list" id="rgtList">
         <div class="screener-status">هنوز نمادی اضافه نکرده‌اید — یک نماد حق تقدم وارد کنید و «افزودن» را بزنید.</div>
       </div>
-      <div class="rp-info">ℹ️ داده از وب‌سرویس BrsApi.ir (Tsetmc/Symbol.php و Candlestick.php) · حق تقدم نسبت به سهم پایه معمولاً پرنوسان‌تر است و به تاریخ سررسید پذیره‌نویسی نزدیک، ریسک آن به‌شدت افزایش می‌یابد · این ابزار مشاوره مالی نیست</div>
     </div>
 
   </div><!-- /#rightsView -->
@@ -6654,6 +6651,7 @@ let resData = {};        // sym -> { status:'loading'|'ok'|'error', full, raw, e
 let resTf = 'daily';     // 'daily' | 'weekly'
 let resLoaded = false;
 let resCancelled = false;
+let resScanTotal = 10;
 let resScanning = false;
 let resLastRaw = {};
 
@@ -6756,9 +6754,22 @@ async function loadResSignals(force) {
   const usingSharedKey = isUsingSharedKey();
   if (warnEl) warnEl.style.display = usingSharedKey ? 'block' : 'none';
 
-  const total = RP_SYMBOLS.length;
+  // فقط ۱۰ نماد با بیشترین ورود پول حقیقی (از داده‌ی تب «رد پول») اسکن می‌شوند
+  let batch;
+  const live = (typeof rpData !== 'undefined' ? rpData : []).filter(d => d && d.fromAPI);
+  if (live.length >= 10) {
+    batch = live.slice()
+      .sort((x, y) => ((y.buyFlow - y.sellFlow) - (x.buyFlow - x.sellFlow)) || ((y.volMult || 0) - (x.volMult || 0)))
+      .slice(0, 10)
+      .map(d => ({ sym: d.sym, full: d.full }));
+  } else {
+    batch = RP_SYMBOLS.slice(0, 10);
+    if (progress) progress.textContent = 'داده‌ی ورود پول هنوز لود نشده؛ ۱۰ نماد اول بررسی می‌شود. برای انتخاب بر اساس ورود پول، اول تب «رد پول» را باز کن.';
+  }
+  resScanTotal = batch.length;
+  const total = batch.length;
   let done = 0, ok = 0;
-  for (const item of RP_SYMBOLS) {
+  for (const item of batch) {
     if (resCancelled) break;
     const sym = item.sym;
     resData[sym] = { status: 'loading', full: item.full };
@@ -6817,7 +6828,7 @@ function resRenderTable(q) {
   const buyEl = document.getElementById('resStatBuy');
 
   const syms = Object.keys(resData);
-  if (checkedEl) checkedEl.textContent = syms.length ? `${syms.length}/${RP_SYMBOLS.length}` : '—';
+  if (checkedEl) checkedEl.textContent = syms.length ? `${syms.length}/${resScanTotal}` : '—';
 
   const rows = syms.map(sym => {
     const d = resData[sym];
