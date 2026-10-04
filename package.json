@@ -1,0 +1,17 @@
+{
+  "name": "sahamyekom",
+  "version": "1.0.0",
+  "description": "سهام یکم - اپلیکیشن اندروید",
+  "scripts": {
+    "sync": "cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@codetrix-studio/capacitor-google-auth": "3.4.0-rc.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/assets": "^3.0.5"
+  }
+}
