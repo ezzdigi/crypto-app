@@ -7650,6 +7650,12 @@ if (savedRiskProfile) {
   function getDeviceId(){
     return new Promise(function(resolve){
       try {
+        // اول: شناسه‌ی ماندگار اندروید (بعد از پاک کردن اطلاعات یا نصب دوباره هم ثابت می‌ماند)
+        var dev = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Device;
+        if (dev && dev.getId) {
+          dev.getId().then(function(r){ resolve((r && r.identifier) ? 'dev-' + r.identifier : fallbackDeviceId()); }).catch(function(){ resolve(fallbackDeviceId()); });
+          return;
+        }
         var plug = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.PersistentUuid;
         if (plug && plug.get) {
           plug.get().then(function(r){ resolve((r && (r.uuid || r.value)) || fallbackDeviceId()); }).catch(function(){ resolve(fallbackDeviceId()); });
