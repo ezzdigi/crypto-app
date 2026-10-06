@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سهام یکم | Trading Terminal</title>
+<title>سهام یکم | تحلیل‌گر بازار</title>
 <style>
 @font-face {
   font-family: 'Vazirmatn';
@@ -1746,191 +1746,6 @@ h1 {
   .indicator-pill { min-width: calc(50% - 5px); }
 }
 
-
-/* ===== بورس مدرن / Market Pro visual overhaul ===== */
-:root{
-  --bg:#070B14; --panel:#0D1422; --panel-raised:#121C2E; --line:#24324A;
-  --text:#F4F7FB; --muted:#A9B7CB; --dim:#6F819C;
-  --green:#18E6A0; --red:#FF5B72; --amber:#FFB020; --blue:#48A7FF; --purple:#A77BFF;
-}
-html,body{background:
- radial-gradient(circle at 10% 0%,rgba(72,167,255,.12),transparent 28%),
- radial-gradient(circle at 95% 10%,rgba(24,230,160,.10),transparent 25%),
- linear-gradient(145deg,#070B14 0%,#09111E 48%,#060A12 100%);
-}
-body{padding:18px 12px 70px;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 75%);z-index:-1}
-.wrap{max-width:760px}
-.brand-bar{padding:12px 14px;margin-bottom:14px;border:1px solid rgba(72,167,255,.18);border-radius:18px;background:linear-gradient(135deg,rgba(18,28,46,.92),rgba(9,16,28,.88));box-shadow:0 14px 40px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.04);animation:marketFloat .7s ease both}
-.brand-mark{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#18E6A0,#48A7FF);border:0;color:#06101B;box-shadow:0 0 24px rgba(24,230,160,.25);animation:glowPulse 2.8s ease-in-out infinite}
-.brand-title{background:linear-gradient(90deg,#fff,#18E6A0,#48A7FF);background-size:200% auto;animation:shineText 5s linear infinite}
-.market-overview-card,.risk-profile-card,.screener-card,.screener-news-card,.settings-card,.price-card,.range-card,.chart-card,.sm-card,.rr-card{
- background:linear-gradient(145deg,rgba(14,22,37,.96),rgba(9,15,27,.96));border-color:rgba(111,129,156,.22);
- box-shadow:0 12px 36px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.035);
- backdrop-filter:blur(10px);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
-}
-.market-overview-card:hover,.risk-profile-card:hover,.screener-card:hover,.price-card:hover,.range-card:hover,.chart-card:hover,.sm-card:hover,.rr-card:hover{transform:translateY(-2px);border-color:rgba(72,167,255,.35);box-shadow:0 18px 48px rgba(0,0,0,.3),0 0 0 1px rgba(72,167,255,.04)}
-.mo-index-row,.mo-cell,.rp-stat,.rp-panel,.screener-row,.wallet-card,.bid-ask-cell,.stat-cell,.range-cell,.rr-point-box,.rr-target-cell{background:rgba(18,28,46,.72);border-color:rgba(111,129,156,.20)}
-.tf-tabs{background:rgba(13,20,34,.92);border-color:#24324A;box-shadow:0 8px 24px rgba(0,0,0,.18)}
-.tf-tab.active{background:linear-gradient(135deg,#18E6A0,#48A7FF);color:#06101B;box-shadow:0 5px 18px rgba(24,230,160,.2)}
-.analyze-btn,.rp-submit-btn,.settings-save-btn{background:linear-gradient(135deg,#18E6A0,#48A7FF);box-shadow:0 8px 22px rgba(24,230,160,.18)}
-.chip:hover{background:rgba(72,167,255,.08);border-color:#48A7FF;transform:translateY(-1px)}
-.price-card{position:relative;overflow:hidden}
-.price-card:after{content:"";position:absolute;inset:-80px auto auto -40px;width:180px;height:180px;border-radius:50%;background:rgba(24,230,160,.08);filter:blur(4px);pointer-events:none}
-.rec-card{box-shadow:0 15px 42px rgba(0,0,0,.28);animation:marketFloat .55s ease both}
-.chart-card{padding:18px 14px 16px;position:relative;overflow:hidden}
-.chart-card:before{content:"MARKET • TECHNICAL";position:absolute;left:16px;top:13px;font-size:8px;letter-spacing:1.5px;color:#425571;opacity:.8}
-.chart-svg-wrap{border:1px solid rgba(72,167,255,.12);border-radius:14px;background:linear-gradient(180deg,rgba(7,12,22,.85),rgba(10,17,29,.98));box-shadow:inset 0 0 35px rgba(0,0,0,.22);padding:5px}
-.chart-svg{min-width:620px}
-.rr-targets-list{grid-template-columns:repeat(3,1fr)}
-.rr-target-cell{padding:10px 5px;border-radius:10px;position:relative;overflow:hidden}
-.rr-target-cell:after{content:"";position:absolute;inset:auto 0 0;height:2px;background:linear-gradient(90deg,#18E6A0,#48A7FF)}
-.rr-target-val{font-size:13px}
-.breakout-trigger-card{display:flex;align-items:center;gap:10px;margin:10px 2px 2px;padding:11px 12px;border:1px solid rgba(255,176,32,.25);border-radius:13px;background:linear-gradient(90deg,rgba(255,176,32,.08),rgba(18,28,46,.6));animation:triggerIn .45s ease both}
-.btc-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(255,176,32,.14);color:#FFB020;font-size:17px}
-.btc-body{flex:1;min-width:0}.btc-title{font-size:11px;font-weight:900;color:#FFB020}.btc-text{font-size:10.5px;color:var(--muted);line-height:1.7;margin-top:2px}
-.btc-badge{font-size:10px;font-weight:900;padding:5px 9px;border-radius:999px;background:rgba(255,176,32,.12);color:#FFB020;white-space:nowrap}
-.breakout-trigger-card.bullish{border-color:rgba(24,230,160,.38);background:linear-gradient(90deg,rgba(24,230,160,.10),rgba(18,28,46,.65))}
-.breakout-trigger-card.bullish .btc-icon,.breakout-trigger-card.bullish .btc-badge{color:#18E6A0;background:rgba(24,230,160,.12)}
-.breakout-trigger-card.bearish{border-color:rgba(255,91,114,.38);background:linear-gradient(90deg,rgba(255,91,114,.10),rgba(18,28,46,.65))}
-.breakout-trigger-card.bearish .btc-icon,.breakout-trigger-card.bearish .btc-badge{color:#FF5B72;background:rgba(255,91,114,.12)}
-.menu-btn{background:rgba(13,20,34,.92);border-color:#24324A;box-shadow:0 8px 26px rgba(0,0,0,.35)}
-.main-nav{background:#09111E;border-color:#24324A}
-.main-nav-tab.active{background:linear-gradient(90deg,rgba(24,230,160,.12),rgba(72,167,255,.08));color:#18E6A0}
-.rp-refresh-btn{box-shadow:0 5px 16px rgba(24,230,160,.12)}
-@keyframes marketFloat{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes triggerIn{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
-@keyframes glowPulse{0%,100%{box-shadow:0 0 18px rgba(24,230,160,.18)}50%{box-shadow:0 0 30px rgba(72,167,255,.35)}}
-@keyframes shineText{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-@media(max-width:600px){.rr-targets-list{grid-template-columns:repeat(3,1fr)}.btc-text{font-size:9.5px}.btc-badge{font-size:9px}.chart-svg{min-width:560px}}
-
-/* ===== Trading Terminal / Glass Trading Atmosphere ===== */
-:root{
-  --trade-cyan:#4fdcff;
-  --trade-blue:#4d8dff;
-  --trade-green:#21e6a0;
-  --trade-red:#ff5f7a;
-}
-body{
-  background:
-    radial-gradient(circle at 12% 8%,rgba(77,141,255,.14),transparent 30%),
-    radial-gradient(circle at 88% 18%,rgba(33,230,160,.09),transparent 28%),
-    linear-gradient(145deg,#02050b 0%,#07111e 52%,#02060d 100%);
-  overflow-x:hidden;
-}
-body::after{
-  content:"";
-  position:fixed;
-  inset:-25%;
-  pointer-events:none;
-  z-index:-2;
-  background:
-    linear-gradient(115deg,transparent 0 43%,rgba(79,220,255,.055) 44%,transparent 45% 100%),
-    linear-gradient(65deg,transparent 0 57%,rgba(33,230,160,.04) 58%,transparent 59% 100%);
-  background-size:420px 420px,520px 520px;
-  animation:tradeGridMove 22s linear infinite;
-}
-@keyframes tradeGridMove{
-  from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(90px,70px,0)}
-}
-@keyframes glassFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-2px)}
-}
-@keyframes tradingGlow{
-  0%,100%{box-shadow:0 18px 55px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.055)}
-  50%{box-shadow:0 18px 55px rgba(0,0,0,.28),0 0 28px rgba(79,220,255,.08),inset 0 1px rgba(255,255,255,.1)}
-}
-@keyframes scanLine{
-  0%{transform:translateX(-120%)}
-  100%{transform:translateX(420%)}
-}
-.brand-bar,
-.market-overview-card,
-.risk-profile-card,
-.screener-card,
-.screener-news-card,
-.settings-card,
-.price-card,
-.range-card,
-.chart-card,
-.sm-card,
-.rr-card,
-.ind-tabs-card{
-  background:linear-gradient(135deg,rgba(14,27,45,.58),rgba(5,12,23,.48)) !important;
-  border:1px solid rgba(126,181,225,.18) !important;
-  backdrop-filter:blur(18px) saturate(135%);
-  -webkit-backdrop-filter:blur(18px) saturate(135%);
-  box-shadow:0 18px 55px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.055);
-}
-.price-card,.chart-card,.rr-card{position:relative;overflow:hidden}
-.price-card::before,.chart-card::before,.rr-card::before{
-  content:"";
-  position:absolute;
-  top:0;left:-40%;
-  width:35%;height:1px;
-  background:linear-gradient(90deg,transparent,var(--trade-cyan),transparent);
-  opacity:.7;
-  animation:scanLine 5.5s ease-in-out infinite;
-}
-.price-card{animation:glassFloat 5s ease-in-out infinite,tradingGlow 4s ease-in-out infinite}
-.chart-card{animation:tradingGlow 4.8s ease-in-out infinite}
-.rr-card{animation:tradingGlow 5.2s ease-in-out infinite}
-.rr-card .rr-header{
-  padding-bottom:10px;
-  border-bottom:1px solid rgba(126,181,225,.12);
-}
-.rr-card .rr-title::before{
-  content:"◈";
-  color:var(--trade-cyan);
-  margin-left:7px;
-  text-shadow:0 0 12px rgba(79,220,255,.55);
-}
-.rr-point-box,.rr-target-cell,.rr-result-cell{
-  background:rgba(8,17,30,.46) !important;
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-}
-.rr-point-box{
-  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
-}
-.rr-point-box:hover{
-  transform:translateY(-2px);
-  border-color:rgba(79,220,255,.32) !important;
-  box-shadow:0 8px 24px rgba(0,0,0,.22);
-}
-.rr-point-box.entry .rr-point-value{color:var(--trade-cyan)}
-.rr-point-box.stop .rr-point-value{color:var(--trade-red)}
-.rr-targets-list{
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:7px;
-}
-.rr-target-cell{
-  min-width:0;
-  padding:8px 4px;
-  border:1px solid rgba(126,181,225,.13);
-  border-radius:9px;
-  transition:transform .18s ease,background .18s ease,border-color .18s ease;
-}
-.rr-target-cell:nth-child(1){border-color:rgba(33,230,160,.24)}
-.rr-target-cell:nth-child(2){border-color:rgba(79,220,255,.24)}
-.rr-target-cell:nth-child(3){border-color:rgba(77,141,255,.25)}
-.rr-target-cell:nth-child(4){border-color:rgba(242,184,75,.27)}
-.rr-target-cell:hover{
-  transform:translateY(-2px);
-  background:rgba(79,220,255,.06) !important;
-}
-.rr-target-cell:nth-child(4) .rr-target-val{color:#f2b84b}
-@media(max-width:560px){
-  .rr-targets-list{grid-template-columns:repeat(2,1fr)}
-}
-@media(prefers-reduced-motion:reduce){
-  body::after,.price-card,.chart-card,.rr-card,.price-card::before,.chart-card::before,.rr-card::before{
-    animation:none !important;
-  }
-}
-
 </style>
 
 <style id="ezzdigi-dark-gray-light-green-theme">
@@ -1965,421 +1780,6 @@ hr{border-color:#2E2E2E !important}
 a{color:#9be0b9 !important}
 </style>
 
-<style>
-
-/* ===== Header trading logo + animated bullish chart ===== */
-.brand-left{direction:ltr}
-.brand-text{direction:rtl;text-align:right}
-.brand-logo-frame{display:none!important;
-  position:relative;
-  overflow:hidden;
-  background:#000 !important;
-  border:1px solid rgba(72,167,255,.32) !important;
-  box-shadow:
-    0 0 0 1px rgba(0,0,0,.8) inset,
-    0 8px 22px rgba(0,0,0,.45),
-    0 0 20px rgba(72,167,255,.12);
-}
-.brand-logo-frame img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  border-radius:inherit;
-  transform:scale(1.05);
-}
- .assistant-progress{
-  position:relative;
-  width:148px;
-  height:26px;
-  flex-shrink:0;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:999px;
-  background:rgba(3,10,18,.92);
-  border:1px solid rgba(24,230,160,.28);
-  box-shadow:inset 0 1px rgba(255,255,255,.05),0 6px 18px rgba(0,0,0,.28);
-}
-.assistant-progress::before{
-  content:"";
-  position:absolute;
-  inset:2px;
-  width:38%;
-  border-radius:999px;
-  background:linear-gradient(90deg,#18E6A0,#48A7FF);
-  box-shadow:0 0 14px rgba(24,230,160,.38);
-  animation:assistantProgress 2.2s ease-in-out infinite;
-}
-.assistant-progress::after{
-  content:"";
-  position:absolute;
-  top:2px; bottom:2px;
-  left:-45px;
-  width:34px;
-  border-radius:999px;
-  background:rgba(255,255,255,.42);
-  filter:blur(5px);
-  animation:assistantShine 2.2s linear infinite;
-}
-.assistant-progress span{
-  position:relative;
-  z-index:2;
-  font-size:10.5px;
-  font-weight:900;
-  color:#fff;
-  text-shadow:0 1px 4px rgba(0,0,0,.7);
-  white-space:nowrap;
-}
-@keyframes assistantProgress{
-  0%{transform:translateX(-95%);width:32%;opacity:.75}
-  50%{transform:translateX(105%);width:72%;opacity:1}
-  100%{transform:translateX(-95%);width:32%;opacity:.75}
-}
-@keyframes assistantShine{
-  0%{left:-45px;opacity:0}
-  20%{opacity:.9}
-  55%{left:155px;opacity:.9}
-  100%{left:155px;opacity:0}
-}
-.header-rise-chart{
-  position:relative;
-  width:116px;
-  height:42px;
-  flex-shrink:0;
-  border-radius:12px;
-  overflow:hidden;
-  padding:3px 5px;
-  background:linear-gradient(145deg,rgba(7,18,30,.92),rgba(3,10,18,.96));
-  border:1px solid rgba(24,230,160,.28);
-  box-shadow:
-    0 8px 22px rgba(0,0,0,.35),
-    inset 0 1px rgba(255,255,255,.06),
-    0 0 16px rgba(24,230,160,.08);
-}
-.header-rise-chart svg{width:100%;height:100%;display:block;overflow:visible}
-.rise-area{fill:url(#riseFill);opacity:.7;animation:riseAreaPulse 2.4s ease-in-out infinite}
-.rise-line{
-  fill:none;
-  stroke:#18E6A0;
-  stroke-width:2.5;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-dasharray:210;
-  stroke-dashoffset:210;
-  filter:drop-shadow(0 0 5px rgba(24,230,160,.65));
-  animation:drawRise 2.2s ease-out infinite;
-}
-.rise-dot{
-  fill:#18E6A0;
-  filter:drop-shadow(0 0 5px rgba(24,230,160,.8));
-  animation:riseDot 1.1s ease-in-out infinite;
-}
-.rise-arrow{
-  position:absolute;
-  left:7px;
-  top:4px;
-  color:#18E6A0;
-  font-size:15px;
-  font-weight:900;
-  line-height:1;
-  text-shadow:0 0 10px rgba(24,230,160,.65);
-  animation:arrowFloat 1.3s ease-in-out infinite;
-}
-@keyframes drawRise{
-  0%{stroke-dashoffset:210;opacity:.35}
-  35%{opacity:1}
-  72%,100%{stroke-dashoffset:0;opacity:1}
-}
-@keyframes riseAreaPulse{
-  0%,100%{opacity:.35}
-  50%{opacity:.78}
-}
-@keyframes riseDot{
-  0%,100%{transform:scale(.8);opacity:.65}
-  50%{transform:scale(1.35);opacity:1}
-}
-@keyframes arrowFloat{
-  0%,100%{transform:translate(0,1px)}
-  50%{transform:translate(2px,-2px)}
-}
-
-/* برجسته‌تر شدن کادرها بدون تغییر ساختار عملکردی */
-.market-overview-card,
-.risk-profile-card,
-.screener-card,
-.screener-news-card,
-.settings-card,
-.price-card,
-.range-card,
-.chart-card,
-.sm-card,
-.rr-card,
-.ind-tabs-card{
-  box-shadow:
-    0 16px 42px rgba(0,0,0,.34),
-    inset 0 1px rgba(255,255,255,.075),
-    inset 0 -1px rgba(0,0,0,.55) !important;
-  position:relative;
-}
-.market-overview-card::after,
-.risk-profile-card::after,
-.screener-card::after,
-.screener-news-card::after,
-.settings-card::after,
-.price-card::after,
-.range-card::after,
-.chart-card::after,
-.sm-card::after,
-.rr-card::after,
-.ind-tabs-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  pointer-events:none;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025);
-}
-@media(max-width:520px){
-  .header-rise-chart{width:92px;height:38px}
-  .assistant-progress{width:118px;height:24px}
-  .assistant-progress span{font-size:9.5px}
-  .brand-logo-frame{display:none!important;width:42px;height:42px}
-}
-
-</style>
-
-<style id="assistant-center-v3">
-/* نسخه جدید هدر: فقط دستیار سهام یکم، کاملاً وسط */
-.header-top,
-.header-inner,
-.brand-text.assistant-center {
-  position: relative;
-}
-
-.brand-text.assistant-center {
-  width: 100%;
-  min-width: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  direction: rtl;
-  z-index: 5;
-}
-
-.assistant-center .assistant-progress {
-  position: relative;
-  width: min(290px, 46vw);
-  height: 34px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 999px;
-  border: 1px solid rgba(255,176,32,.42);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.025)),
-    rgba(8,12,24,.88);
-  box-shadow:
-    0 0 0 1px rgba(255,176,32,.08) inset,
-    0 8px 24px rgba(0,0,0,.30),
-    0 0 18px rgba(255,176,32,.10);
-}
-
-.assistant-center .assistant-progress::before {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  width: 42%;
-  border-radius: inherit;
-  background:
-    linear-gradient(90deg,
-      rgba(255,176,32,0) 0%,
-      rgba(255,176,32,.35) 18%,
-      rgba(255,207,92,.95) 48%,
-      rgba(255,176,32,.75) 78%,
-      rgba(255,176,32,0) 100%);
-  filter: blur(.2px);
-  box-shadow:
-    0 0 12px rgba(255,176,32,.38),
-    0 0 28px rgba(255,176,32,.16);
-  animation: assistantFillSweep 2.6s cubic-bezier(.4,0,.2,1) infinite;
-}
-
-.assistant-center .assistant-progress::after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  bottom: 3px;
-  width: 34px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff 0 7%, #ffd15a 20%, rgba(255,176,32,0) 72%);
-  filter: blur(.2px);
-  animation: assistantPulse 2.6s ease-in-out infinite;
-}
-
-.assistant-center .assistant-progress span {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: -.2px;
-  text-shadow: 0 1px 8px rgba(0,0,0,.7), 0 0 10px rgba(255,176,32,.18);
-  animation: assistantTextGlow 2.6s ease-in-out infinite;
-}
-
-@keyframes assistantFillSweep {
-  0%   { transform: translateX(-115%); opacity: .55; }
-  18%  { opacity: 1; }
-  72%  { opacity: .95; }
-  100% { transform: translateX(250%); opacity: .35; }
-}
-
-@keyframes assistantPulse {
-  0%,100% { left: -10px; opacity: .15; transform: scale(.7); }
-  35%     { opacity: .9; transform: scale(1); }
-  72%     { left: 82%; opacity: .85; transform: scale(1.05); }
-}
-
-@keyframes assistantTextGlow {
-  0%,100% { opacity: .88; transform: scale(.985); }
-  45%     { opacity: 1; transform: scale(1); }
-}
-
-@media (max-width: 700px) {
-  .assistant-center .assistant-progress {
-    width: min(245px, 64vw);
-    height: 31px;
-  }
-  .assistant-center .assistant-progress span {
-    font-size: 11px;
-  }
-}
-</style>
-
-
-<style id="optTheme">
-/* ===== تم ترمینال اختیار معامله ===== */
-#optionsView{position:relative;isolation:isolate}
-#optionsView::before{content:"";position:absolute;inset:-30px -20px auto -20px;height:260px;z-index:-1;pointer-events:none;
-  background:radial-gradient(60% 80% at 80% 0%,rgba(120,184,154,.20),transparent 70%),radial-gradient(50% 70% at 10% 10%,rgba(143,168,154,.12),transparent 70%);
-  animation:optGlow 8s ease-in-out infinite alternate}
-@keyframes optGlow{from{opacity:.55;transform:translateY(0)}to{opacity:1;transform:translateY(12px)}}
-#optionsView .rp-panel{background:linear-gradient(165deg,#0e1411 0%,#080908 60%);border:1px solid rgba(120,184,154,.20);border-radius:20px;
-  box-shadow:0 12px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);animation:optIn .6s cubic-bezier(.2,.8,.2,1) both}
-.opt-hero{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.opt-hero-title{font-size:20px;font-weight:900;letter-spacing:-.3px;background:linear-gradient(90deg,#E8EEE9,#78B89A,#E8EEE9);background-size:220% 100%;
-  -webkit-background-clip:text;background-clip:text;color:transparent;animation:optShine 5s linear infinite}
-.opt-hero-sub{margin-inline-start:auto;font-size:9px;letter-spacing:2px;color:var(--dim);direction:ltr;font-family:ui-monospace,Menlo,monospace}
-.opt-live{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(120,184,154,.6);animation:optPing 1.8s infinite}
-@keyframes optPing{70%{box-shadow:0 0 0 10px rgba(120,184,154,0)}100%{box-shadow:0 0 0 0 rgba(120,184,154,0)}}
-@keyframes optShine{to{background-position:-220% 0}}
-@keyframes optIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
-@keyframes optSweep{from{transform:translateX(120%)}to{transform:translateX(-120%)}}
-@keyframes optPulse{0%,100%{box-shadow:0 0 0 0 rgba(185,120,120,.55)}50%{box-shadow:0 0 0 6px rgba(185,120,120,0)}}
-#optionsView .coin-input{background:#0b0f0d;border:1px solid var(--line);border-radius:12px;transition:.25s}
-#optionsView .coin-input:focus{outline:0;border-color:var(--green);box-shadow:0 0 0 3px rgba(120,184,154,.15),0 0 24px rgba(120,184,154,.15)}
-#optionsView .analyze-btn{position:relative;overflow:hidden;background:linear-gradient(135deg,#78B89A,#4f9677);color:#04120b;font-weight:800;border:0;border-radius:12px;transition:.25s}
-#optionsView .analyze-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(120%)}
-#optionsView .analyze-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(120,184,154,.35)}
-#optionsView .analyze-btn:hover::after{animation:optSweep .8s}
-#optionsView .analyze-btn:active{transform:scale(.97)}
-#optionsView .rp-fbtn{transition:.25s;border-radius:999px}
-#optionsView .rp-fbtn:hover{transform:translateY(-1px);border-color:var(--green)}
-#optionsView .rp-fbtn.active{background:linear-gradient(135deg,rgba(120,184,154,.28),rgba(120,184,154,.10));border-color:var(--green);color:#E8EEE9;box-shadow:0 0 18px rgba(120,184,154,.25)}
-#optList .screener-row{position:relative;overflow:hidden;background:linear-gradient(160deg,#101613,#0a0c0b);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:14px;margin-bottom:12px;
-  animation:optIn .55s cubic-bezier(.2,.8,.2,1) both;transition:transform .25s,border-color .25s,box-shadow .25s}
-#optList .screener-row:nth-child(2){animation-delay:.07s}#optList .screener-row:nth-child(3){animation-delay:.14s}
-#optList .screener-row:nth-child(4){animation-delay:.21s}#optList .screener-row:nth-child(n+5){animation-delay:.28s}
-#optList .screener-row::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:.7}
-#optList .screener-row:hover{transform:translateY(-3px);border-color:rgba(120,184,154,.45);box-shadow:0 14px 34px rgba(0,0,0,.55),0 0 28px rgba(120,184,154,.10)}
-#optList .rp-sym{font-size:16px;font-weight:900;letter-spacing:.3px}
-#optList .rp-badge{border-radius:999px;transition:transform .2s}
-#optList .rp-badge:hover{transform:scale(1.06)}
-.opt-pulse{animation:optPulse 1.4s infinite}
-#optionsView .rp-tbl th{font-size:9.5px;letter-spacing:.4px;color:var(--dim);font-weight:600}
-#optionsView .rp-tbl td{font-variant-numeric:tabular-nums;transition:background .2s}
-#optionsView .rp-tbl tbody tr:hover td{background:rgba(120,184,154,.07)}
-#optList .screener-refresh-btn{transition:.2s;border-radius:9px}
-#optList .screener-refresh-btn:hover{border-color:var(--green);color:var(--green);transform:translateY(-1px)}
-#optList details summary{padding:6px 0;list-style:none}#optList details[open]{animation:optIn .35s both}
-#optList .screener-status,#optList .rp-full:only-child{animation:optBlink 1.6s ease-in-out infinite}
-@keyframes optBlink{50%{opacity:.45}}
-#optChain .rp-panel-title{background:linear-gradient(90deg,var(--green),var(--text));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
-#optChain .rp-tbl-wrap{animation:optIn .5s both;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
-#optChain .rp-tbl td:nth-child(2){background:rgba(255,255,255,.04);font-weight:800;color:var(--amber)}
-@media (prefers-reduced-motion:reduce){#optionsView *,#optionsView::before{animation:none!important;transition:none!important}}
-</style>
-
-<style id="appTheme">
-/* ===== تم سراسری ترمینال ترید: مدرن، متحرک، جذاب ===== */
-html{scroll-behavior:smooth}
-::selection{background:rgba(120,184,154,.35)}
-::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:#2a3a31;border-radius:6px}
-body{background:#000 radial-gradient(70% 40% at 85% -5%,rgba(120,184,154,.14),transparent 70%),radial-gradient(60% 35% at 0% 20%,rgba(143,168,154,.08),transparent 70%) no-repeat fixed;
-  background-image:radial-gradient(70% 40% at 85% -5%,rgba(120,184,154,.14),transparent 70%),radial-gradient(60% 35% at 0% 20%,rgba(143,168,154,.08),transparent 70%),linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
-  background-size:auto,auto,36px 36px,36px 36px;background-attachment:fixed}
-body::before{content:"";position:fixed;inset:0 0 auto 0;height:3px;z-index:9999;pointer-events:none;
-  background:linear-gradient(90deg,transparent,#78B89A,#E8EEE9,#78B89A,transparent);background-size:200% 100%;animation:appBar 4s linear infinite}
-@keyframes appBar{to{background-position:-200% 0}}
-@keyframes appIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes appSweep{from{transform:translateX(120%)}to{transform:translateX(-120%)}}
-@keyframes appGlow{0%,100%{box-shadow:0 0 0 0 rgba(120,184,154,0)}50%{box-shadow:0 0 22px 0 rgba(120,184,154,.16)}}
-/* هر صفحه هنگام باز شدن با انیمیشن ظاهر می‌شود */
-[id$="View"]{animation:appIn .45s cubic-bezier(.2,.8,.2,1) both}
-/* کارت‌ها */
-.market-overview-card,.risk-profile-card,.screener-card,.rp-panel,.rp-stat,.mo-index-row,.mo-cell{
-  background-image:linear-gradient(165deg,rgba(120,184,154,.07),rgba(255,255,255,0) 55%);border-color:rgba(255,255,255,.08)!important;
-  transition:transform .25s,border-color .25s,box-shadow .25s}
-.market-overview-card,.risk-profile-card,.screener-card,.rp-panel{border-radius:20px!important;box-shadow:0 12px 36px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04)!important}
-.market-overview-card:hover,.screener-card:hover,.rp-stat:hover,.mo-cell:hover,.mo-index-row:hover{transform:translateY(-2px);border-color:rgba(120,184,154,.4)!important;box-shadow:0 14px 34px rgba(0,0,0,.55),0 0 26px rgba(120,184,154,.10)!important}
-.screener-row{border-radius:14px;transition:transform .22s,background .22s,box-shadow .22s}
-.screener-row:hover{transform:translateX(-3px);background:rgba(120,184,154,.06);box-shadow:0 8px 24px rgba(0,0,0,.4)}
-.mo-cell-value,.rp-stat-val{background:linear-gradient(90deg,var(--text),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
-.mo-cell-change.up,.mo-cell-change.down{font-weight:700}
-.mo-cell-change.up::before{content:"▲ "}.mo-cell-change.down::before{content:"▼ "}
-.mo-spark-svg{filter:drop-shadow(0 0 6px rgba(120,184,154,.55))}
-/* منو */
-.main-nav-tab{position:relative;overflow:hidden;border-radius:12px;transition:transform .2s,background .25s,color .25s}
-.main-nav-tab:hover{transform:translateX(-4px);background:rgba(120,184,154,.10)}
-.main-nav-tab.active{background:linear-gradient(135deg,rgba(120,184,154,.30),rgba(120,184,154,.08))!important;color:#fff;box-shadow:inset -3px 0 0 var(--green),0 0 20px rgba(120,184,154,.15)}
-.main-nav-section-title{letter-spacing:.5px;color:var(--green)!important;opacity:.85}
-/* دکمه‌ها */
-.analyze-btn,.rp-submit-btn{position:relative;overflow:hidden;background:linear-gradient(135deg,#78B89A,#4f9677)!important;color:#04120b!important;font-weight:800;border:0;border-radius:12px;transition:transform .2s,box-shadow .25s}
-.analyze-btn::after,.rp-submit-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(120%)}
-.analyze-btn:hover,.rp-submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(120,184,154,.35)}
-.analyze-btn:hover::after,.rp-submit-btn:hover::after{animation:appSweep .8s}
-button:active,.analyze-btn:active,.rp-opt:active,.sl-tab:active,.rp-fbtn:active{transform:scale(.96)}
-.screener-refresh-btn,.mo-refresh-btn,.rp-toggle-btn{transition:.2s;border-radius:10px}
-.screener-refresh-btn:hover,.rp-toggle-btn:hover{transform:translateY(-1px);box-shadow:0 0 16px rgba(120,184,154,.2)}
-.mo-refresh-btn:hover{transform:rotate(180deg);transition:transform .5s}
-.rp-fbtn,.sl-tab,.rp-opt{border-radius:999px;transition:.22s}
-.rp-fbtn:hover,.sl-tab:hover{transform:translateY(-1px);border-color:var(--green)}
-.rp-fbtn.active,.sl-tab.active{background:linear-gradient(135deg,rgba(120,184,154,.30),rgba(120,184,154,.10))!important;border-color:var(--green)!important;color:#fff;box-shadow:0 0 18px rgba(120,184,154,.25)}
-/* ورودی‌ها */
-input[type=text],input[type=number],input:not([type]),.coin-input,.settings-input,.wallet-qty-input,select,textarea{background:#0b0f0d;border-radius:12px;transition:border-color .25s,box-shadow .25s}
-input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!important;box-shadow:0 0 0 3px rgba(120,184,154,.15),0 0 24px rgba(120,184,154,.15)}
-/* جدول‌ها و نشان‌ها */
-.rp-tbl th{font-size:10px;letter-spacing:.4px;color:var(--dim);font-weight:600}
-.rp-tbl td{font-variant-numeric:tabular-nums;transition:background .2s}
-.rp-tbl tbody tr:hover td{background:rgba(120,184,154,.07)}
-.rp-badge{border-radius:999px;transition:transform .2s}.rp-badge:hover{transform:scale(1.06)}
-.rp-info{border-radius:12px;border:1px dashed rgba(255,255,255,.08)}
-.screener-status,.rp-loading{animation:optBlink 1.6s ease-in-out infinite}
-@keyframes optBlink{50%{opacity:.45}}
-/* آیتم‌های لیست با ورود پلکانی */
-.screener-list>*,.rp-grid>*{animation:appIn .5s cubic-bezier(.2,.8,.2,1) both}
-.screener-list>*:nth-child(2),.rp-grid>*:nth-child(2){animation-delay:.06s}.screener-list>*:nth-child(3),.rp-grid>*:nth-child(3){animation-delay:.12s}
-.screener-list>*:nth-child(4),.rp-grid>*:nth-child(4){animation-delay:.18s}.screener-list>*:nth-child(n+5){animation-delay:.24s}
-.rp-stat.g{animation:appIn .5s both,appGlow 3.5s ease-in-out 1s infinite}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-</style>
 </head>
 <body>
 
@@ -2390,29 +1790,13 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
 
   <div class="brand-bar">
     <div class="brand-left">
-      <div class="brand-text assistant-center">
-        <div class="assistant-progress" aria-label="دستیار سهام یکم">
-          <span>دستیار سهام یکم</span>
-        </div>
+      <div class="brand-mark">📈</div>
+      <div class="brand-text">
+        <div class="brand-title">سهام یکم</div>
+        <div class="brand-sub">تحلیل‌گر لحظه‌ای بازار · قیمت زنده + کندل‌استیک + اسمارت مانی</div>
       </div>
     </div>
-
-    <div class="header-rise-chart" aria-label="روند صعودی بازار">
-      <svg viewBox="0 0 150 48" preserveAspectRatio="none" role="img">
-        <defs>
-          <linearGradient id="riseFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#18E6A0" stop-opacity=".32"/>
-            <stop offset="100%" stop-color="#18E6A0" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <path class="rise-area" d="M2 42 L18 37 L30 39 L43 29 L55 33 L69 23 L82 27 L96 16 L108 21 L121 10 L132 14 L148 3 L148 48 L2 48 Z"/>
-        <path class="rise-line" d="M2 42 L18 37 L30 39 L43 29 L55 33 L69 23 L82 27 L96 16 L108 21 L121 10 L132 14 L148 3"/>
-        <circle class="rise-dot" cx="148" cy="3" r="3"/>
-      </svg>
-      <span class="rise-arrow">↗</span>
-    </div>
-
-    <div class="api-status-pill pending" id="apiStatusPill" title="وضعیت اتصال به سرویس داده" style="display:none">
+    <div class="api-status-pill pending" id="apiStatusPill" title="وضعیت اتصال به سرویس داده">
       <span class="api-status-dot"></span>
       <span id="apiStatusText">در حال بررسی...</span>
     </div>
@@ -2519,10 +1903,10 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
     <div class="main-nav-section">
       <div class="main-nav-section-title">تحلیل و معامله</div>
       <div class="main-nav-tab active" data-view="analyzer">📊 تحلیل‌گر</div>
-
-
-
-
+      <div class="main-nav-tab" data-view="indexAnalysis">📈 تحلیل شاخص بورس</div>
+      <div class="main-nav-tab" data-view="options">🧾 اختیار معامله</div>
+      <div class="main-nav-tab" data-view="rights">🎫 حق تقدم</div>
+      <div class="main-nav-tab" data-view="tableau">🔍 تابلوخوانی</div>
     </div>
 
     <div class="main-nav-section">
@@ -2536,15 +1920,13 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
     <div class="main-nav-section">
       <div class="main-nav-section-title">سیگنال‌ها و پول هوشمند</div>
       <div class="main-nav-tab" data-view="smartList">💰 رد پول</div>
-      <div class="main-nav-tab" data-view="options">🧾 اختیار معامله</div>
-
-
+      <div class="main-nav-tab" data-view="emaSignals">💠 سیگنال EMA</div>
+      <div class="main-nav-tab" data-view="resSignals">🎯 شکست مقاومت</div>
     </div>
 
     <div class="main-nav-section">
       <div class="main-nav-section-title">ابزارها</div>
       <div class="main-nav-tab" data-view="wallet">👛 کیف پول</div>
-      <div class="main-nav-tab" data-view="settings">⚙️ تنظیمات</div>
     </div>
   </div>
 
@@ -2704,18 +2086,9 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
         <span><i class="legend-dot" style="background:#B68CF2"></i>پولبک ۶۱.۸٪</span>
         <span><i class="legend-dot" style="background:#3DDC97;opacity:0.5"></i>محدوده خرید</span>
         <span><i class="legend-dot" style="background:#FF5C72;opacity:0.5"></i>محدوده فروش</span>
-        <span><i class="legend-dot" style="background:#FFB020"></i>تریگر شکست</span>
-      </div>
-      <div class="breakout-trigger-card" id="breakoutTriggerCard">
-        <div class="btc-icon">⚡</div>
-        <div class="btc-body">
-          <div class="btc-title">تریگر شکست</div>
-          <div class="btc-text" id="breakoutTriggerText">در حال محاسبه...</div>
-        </div>
-        <div class="btc-badge" id="breakoutTriggerBadge">—</div>
       </div>
       <div class="chart-svg-wrap">
-        <svg class="chart-svg" id="chartSvg" viewBox="0 0 720 340" preserveAspectRatio="xMidYMid meet"></svg>
+        <svg class="chart-svg" id="chartSvg" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet"></svg>
       </div>
 
     </div>
@@ -3284,9 +2657,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
       <div class="screener-desc">
         به‌محض این‌که میانگین متحرک نمایی ۹ روزه، ۲۶ روزه را قطع کند سیگنال صادر می‌شود: قطع رو به بالا = خرید، قطع رو به پایین = فروش. اسکن یکی‌یکی و با فاصله انجام می‌شود تا به محدودیت نرخ BrsApi نخوریم.
       </div>
-      <div id="emaKeyWarning" style="display:none;font-size:11.5px;line-height:1.9;background:rgba(242,184,75,0.1);border:1px solid rgba(242,184,75,0.35);color:var(--amber);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
-        ⚠️ داری از کلید رایگان مشترک BrsApi استفاده می‌کنی که بین همه‌ی کاربرای این اپ مشترکه و زود به محدودیت نرخ می‌خوره. برای اسکن قابل‌اعتماد، یه کلید رایگان شخصی از BrsApi.ir بگیر و تو تب «⚙️ تنظیمات» وارد کن.
-      </div>
       <div class="rp-filters">
         <button class="rp-fbtn active" data-emaf="all">همه</button>
         <button class="rp-fbtn" data-emaf="buy">خرید 🟢</button>
@@ -3357,9 +2727,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
       <div class="screener-desc">
         برای هر نماد، سقف‌های قیمتی (Swing High) شناسایی و در سطوح مقاومتی خوشه‌بندی می‌شوند. هر نمادی که قیمتش برای چهارمین‌بار به یک سطح مقاومت برخورد کرده (یا تازه آن را شکسته) این‌جا به‌عنوان پیشنهاد خرید معرفی می‌شود؛ اولین مقاومت بالاتر از آن سطح هم به‌عنوان هدف فروش پیشنهاد می‌شود. طبق تئوری کلاسیک تحلیل تکنیکال، هر بار که قیمت به یک مقاومت برخورد می‌کند و آن را نمی‌شکند، احتمال شکست در برخوردهای بعدی بیشتر می‌شود — برخورد سوم و چهارم معمولاً پرقدرت‌ترین تلاش‌ها برای شکست هستند.
       </div>
-      <div id="resKeyWarning" style="display:none;font-size:11.5px;line-height:1.9;background:rgba(242,184,75,0.1);border:1px solid rgba(242,184,75,0.35);color:var(--amber);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
-        ⚠️ داری از کلید رایگان مشترک BrsApi استفاده می‌کنی که بین همه‌ی کاربرای این اپ مشترکه و زود به محدودیت نرخ می‌خوره. برای اسکن قابل‌اعتماد، یه کلید رایگان شخصی از BrsApi.ir بگیر و تو تب «⚙️ تنظیمات» وارد کن.
-      </div>
       <div class="rp-filters">
         <input class="rp-search" id="resSearch" type="text" placeholder="جستجوی نماد..." style="flex:1" />
       </div>
@@ -3420,9 +2787,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
       </div>
       <div class="screener-desc">
         برای هر نماد، آخرین موج صعودی (کف تا سقف) پیدا و سطوح فیبوناچی پولبک (۲۳.۶٪ تا ۷۸.۶٪) روی آن رسم می‌شود. وقتی قیمت فعلی نزدیک یکی از این سطوح (به‌ویژه سطح طلایی ۶۱.۸٪) باشد و این سطح هم‌زمان نزدیک یک ناحیه حمایت/مقاومت شکسته‌شده (پولبک به مقاومت قبلی که حالا نقش حمایت دارد) باشد، به‌عنوان نقطه ورود پیشنهاد می‌شود؛ هدف سود اول، نزدیک‌ترین مقاومت پیش‌رو و هدف دوم، سقف موج قبلی است — هر دو به‌صورت درصد سود نسبت به نقطه ورود محاسبه می‌شوند.
-      </div>
-      <div id="fibKeyWarning" style="display:none;font-size:11.5px;line-height:1.9;background:rgba(242,184,75,0.1);border:1px solid rgba(242,184,75,0.35);color:var(--amber);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
-        ⚠️ داری از کلید رایگان مشترک BrsApi استفاده می‌کنی که بین همه‌ی کاربرای این اپ مشترکه و زود به محدودیت نرخ می‌خوره. برای اسکن قابل‌اعتماد، یه کلید رایگان شخصی از BrsApi.ir بگیر و تو تب «⚙️ تنظیمات» وارد کن.
       </div>
       <div class="rp-filters">
         <input class="rp-search" id="fibSearch" type="text" placeholder="جستجوی نماد..." style="flex:1" />
@@ -3492,9 +2856,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
         <div class="mo-spark-empty">در حال دریافت داده شاخص...</div>
       </div>
 
-      <div id="idxKeyWarning" style="display:none;font-size:11.5px;line-height:1.9;background:rgba(242,184,75,0.1);border:1px solid rgba(242,184,75,0.35);color:var(--amber);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
-        ⚠️ داری از کلید رایگان مشترک BrsApi استفاده می‌کنی که بین همه‌ی کاربرای این اپ مشترکه و زود به محدودیت نرخ می‌خوره. برای دریافت پایدار شاخص، یه کلید رایگان شخصی از BrsApi.ir بگیر و تو تب «⚙️ تنظیمات» وارد کن.
-      </div>
       <div id="idxStatus" style="display:none;font-size:11.5px;color:var(--dim);text-align:center;padding:8px;"></div>
 
       <div class="screener-desc" id="idxAnalysisText">برای دریافت تحلیل، ابتدا شاخص را به‌روزرسانی کنید.</div>
@@ -3507,31 +2868,23 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
 
     <div class="rp-panel">
       <div class="rp-panel-hd">
-        <div class="opt-hero"><span class="opt-live"></span><div class="opt-hero-title">اختیار معامله</div><div class="opt-hero-sub">OPTIONS · TERMINAL</div></div>
+        <div class="rp-panel-title">🧾 اختیار معامله (آپشن)</div>
       </div>
-      <div class="screener-desc">۱۰ اختیار خرید و ۱۰ اختیار فروش پرحجم بازار (یا هر نماد را جستجو کنید). روی «تحلیل» بزنید تا سیگنال، ریسک، ارزش ذاتی/زمانی و یونانی‌ها نمایش داده شود.</div>
-      <div class="search-row" style="margin-bottom:10px;display:none;">
-        <input type="text" class="coin-input" id="optSymbolInput" placeholder="نماد (یک یا چند نماد با فاصله): ضخود7020 طخود7020" />
+      <div class="screener-desc">نماد اختیار معامله (مثلاً «ضخود7020» برای اختیار خرید یا «طخود7020» برای اختیار فروش) را وارد کنید تا قیمت، سیگنال خرید/فروش، ورود یا خروج پول و درصد ریسک آن نمایش داده شود. نمادها در همین مرورگر شما ذخیره می‌شوند.</div>
+      <div class="search-row" style="margin-bottom:10px;">
+        <input type="text" class="coin-input" id="optSymbolInput" placeholder="نماد اختیار معامله را وارد کنید..." />
         <button class="analyze-btn" id="optAddBtn">افزودن</button>
       </div>
-      <div id="optKeyWarning" style="display:none;font-size:11.5px;line-height:1.9;background:rgba(242,184,75,0.1);border:1px solid rgba(242,184,75,0.35);color:var(--amber);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
-        ⚠️ داری از کلید رایگان مشترک BrsApi استفاده می‌کنی که بین همه‌ی کاربرای این اپ مشترکه و زود به محدودیت نرخ می‌خوره. برای اسکن قابل‌اعتماد، یه کلید رایگان شخصی از BrsApi.ir بگیر و تو تب «⚙️ تنظیمات» وارد کن.
-      </div>
       <div id="optStatus" style="font-size:11.5px;color:var(--dim);text-align:center;padding:6px;display:none;"></div>
-      <div class="rp-filters" id="optFilterBar" style="margin-bottom:10px;display:none;">
+      <div class="rp-filters" id="optFilterBar" style="margin-bottom:10px;">
         <button class="rp-fbtn active" data-optf="all">همه</button>
         <button class="rp-fbtn" data-optf="volume">پرحجم‌ترین 🔊</button>
         <button class="rp-fbtn" data-optf="in">ورود پول زیاد ⬆</button>
         <button class="rp-fbtn" data-optf="out">خروج پول زیاد ⬇</button>
       </div>
-      <div class="search-row" style="margin-bottom:10px;">
-        <input type="text" class="coin-input" id="optSearchInput" placeholder="🔍 جستجوی اختیار معامله (مثلا ضخود، طخود، خودرو یا قیمت اعمال)" autocomplete="off" />
-      </div>
-      <div id="optTop"></div>
-      <div class="screener-list" id="optList" style="display:none">
+      <div class="screener-list" id="optList">
         <div class="screener-status">هنوز نمادی اضافه نکرده‌اید — یک نماد اختیار معامله وارد کنید و «افزودن» را بزنید.</div>
       </div>
-      <div id="optChain" style="display:none"></div>
       <div class="rp-info">ℹ️ داده از وب‌سرویس BrsApi.ir (Tsetmc/Symbol.php و Candlestick.php) · سیگنال از تقاطع میانگین متحرک، RSI و ساختار قیمت دارایی گرفته می‌شود · ورود/خروج پول از سرانه‌ی خرید و فروش حقیقی همان لحظه محاسبه می‌شود · درصد ریسک بر اساس نوسان اخیر قیمت است، نه مدل قیمت‌گذاری اختیار معامله · این ابزار مشاوره مالی نیست و برای قراردادهای اختیار معامله، ریسک از سهام پایه به‌طور ذاتی بسیار بالاتر است</div>
     </div>
 
@@ -3559,9 +2912,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
         <input type="text" class="coin-input" id="rgtSymbolInput" placeholder="نماد حق تقدم را وارد کنید..." />
         <button class="analyze-btn" id="rgtAddBtn">افزودن</button>
       </div>
-      <div id="rgtKeyWarning" style="display:none;font-size:11.5px;line-height:1.9;background:rgba(242,184,75,0.1);border:1px solid rgba(242,184,75,0.35);color:var(--amber);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
-        ⚠️ داری از کلید رایگان مشترک BrsApi استفاده می‌کنی که بین همه‌ی کاربرای این اپ مشترکه و زود به محدودیت نرخ می‌خوره. برای اسکن قابل‌اعتماد، یه کلید رایگان شخصی از BrsApi.ir بگیر و تو تب «⚙️ تنظیمات» وارد کن.
-      </div>
       <div id="rgtStatus" style="font-size:11.5px;color:var(--dim);text-align:center;padding:6px;display:none;"></div>
       <div class="screener-list" id="rgtList">
         <div class="screener-status">هنوز نمادی اضافه نکرده‌اید — یک نماد حق تقدم وارد کنید و «افزودن» را بزنید.</div>
@@ -3580,9 +2930,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
       <div class="search-row" style="margin-bottom:6px;">
         <input type="text" class="coin-input" id="tblSymbolInput" placeholder="نماد را وارد کنید (مثلاً خودرو)..." />
         <button class="analyze-btn" id="tblAnalyzeBtn">بررسی تابلو</button>
-      </div>
-      <div id="tblKeyWarning" style="display:none;font-size:11.5px;line-height:1.9;background:rgba(242,184,75,0.1);border:1px solid rgba(242,184,75,0.35);color:var(--amber);border-radius:10px;padding:10px 12px;margin-bottom:12px;">
-        ⚠️ داری از کلید رایگان مشترک BrsApi استفاده می‌کنی که بین همه‌ی کاربرای این اپ مشترکه و زود به محدودیت نرخ می‌خوره. برای بررسی پایدار، یه کلید رایگان شخصی از BrsApi.ir بگیر و تو تب «⚙️ تنظیمات» وارد کن.
       </div>
       <div id="tblStatus" style="font-size:11.5px;color:var(--dim);text-align:center;padding:8px;display:none;"></div>
 
@@ -3623,22 +2970,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--green)!impo
 
   <div id="settingsView" style="display:none;">
 
-    <div class="settings-card">
-      <div class="settings-card-title">کلید API بورس (BrsApi)</div>
-      <div class="settings-card-desc">
-        برای نمادهای بورس/فرابورس ایران، این ابزار به‌صورت پیش‌فرض از یک کلید رایگان مشترک BrsApi.ir استفاده می‌کند. اگر کلید شخصی خودتان را دارید (یا با محدودیت درخواست کلید مشترک مواجه شدید)، می‌توانید آن را اینجا وارد کنید تا به‌جای کلید مشترک استفاده شود. کلید فقط روی همین مرورگر شما ذخیره می‌شود.
-      </div>
-      <div class="settings-status" id="settingsBrsStatus">در حال استفاده از کلید رایگان مشترک</div>
-      <div class="settings-field-row">
-        <input type="text" class="settings-input" id="settingsBrsKeyInput" placeholder="کلید BrsApi خودتان را وارد کنید (اختیاری)" />
-        <button class="settings-save-btn" id="settingsBrsSaveBtn">ذخیره</button>
-      </div>
-      <button class="settings-clear-btn" id="settingsBrsClearBtn">حذف کلید شخصی و بازگشت به کلید رایگان</button>
-      <div class="settings-link-row">
-        دریافت کلید رایگان شخصی: <a href="https://brsapi.ir/tsetmc-exchange-free-bourse-api-key-request/" target="_blank" rel="noopener noreferrer">brsapi.ir</a>
-      </div>
-    </div>
-
   </div><!-- /#settingsView -->
 
 </div><!-- /#appRoot -->
@@ -3655,7 +2986,6 @@ const result = document.getElementById('result');
 let lastAnalysisContext = '';
 let lastAnalysisData = null;
 let currentChartD = null;
-let currentTradePlan = null;
 let currentRR = null;
 let chartZoomLevels = [25, 18, 12, 8];
 let chartZoomIndex = 0;
@@ -3695,27 +3025,20 @@ async function refreshDefaultBrsApiKey() {
 }
 
 function getBrsApiKey() {
-  try {
-    const userKey = localStorage.getItem(BRS_USER_KEY_STORAGE);
-    if (userKey && userKey.trim()) return userKey.trim();
-  } catch (e) {}
   if (brsDefaultKeyRuntime) return brsDefaultKeyRuntime;
   try {
     const cached = localStorage.getItem(BRS_DEFAULT_KEY_CACHE);
     if (cached && /^[A-Za-z0-9]{16,64}$/.test(cached.trim())) return cached.trim();
   } catch (e) {}
-  return ''; // کلیدی در کد اپ نگهداری نمی‌شود؛ کلید مشترک فقط از سرور گرفته می‌شود یا کاربر کلید شخصی وارد می‌کند
+  return ''; // کلیدی در کد اپ نگهداری نمی‌شود؛ کلید فقط از سرور گرفته می‌شود
 }
 refreshDefaultBrsApiKey(); // همین الان، در پس‌زمینه، کلید مشترک را از سرور بگیر
 
 function isUsingSharedKey() {
-  try {
-    const userKey = localStorage.getItem(BRS_USER_KEY_STORAGE);
-    return !(userKey && userKey.trim());
-  } catch (e) {
-    return true;
-  }
+  return true; // همه‌ی کاربران فقط از کلید اپ استفاده می‌کنند
 }
+// کلید شخصی نسخه‌های قبلی (اگر در مرورگر مانده باشد) پاک می‌شود
+try { localStorage.removeItem(BRS_USER_KEY_STORAGE); } catch (e) {}
 
 // BrsApi برای فراخوانی مستقیم از مرورگر/WebView هدر CORS نمی‌فرستد، پس اول مستقیم امتحان می‌کنیم
 // و در صورت شکست (خطای شبکه/CORS) از یک پراکسی عمومی CORS به‌عنوان جایگزین استفاده می‌کنیم.
@@ -4027,13 +3350,13 @@ async function fetchMarketOverview() {
       moStatus.style.display = 'block';
       const codes = `${indexRes.status}/${goldCurrencyRes.status}`;
       moStatus.textContent = indexRes.status === 429 || goldCurrencyRes.status === 429
-        ? 'محدودیت درخواست کلید رایگان مشترک پر شده — از بخش تنظیمات، کلید شخصی خودتان را وارد کنید.'
+        ? 'محدودیت درخواست پر شده — چند دقیقه دیگر دوباره تلاش کنید.'
         : `دریافت داده‌های بازار در حال حاضر ممکن نشد (کد ${codes}).`;
       setApiStatus('err', 'قطع — داده دریافت نشد');
     } else if (!indexOk) {
       moStatus.style.display = 'block';
       moStatus.textContent = indexRes.status === 429
-        ? 'شاخص کل بورس دریافت نشد: محدودیت نرخ کلید مشترک پر شده — کلید شخصی خود را در تنظیمات وارد کنید.'
+        ? 'شاخص کل بورس دریافت نشد: محدودیت درخواست پر شده — چند دقیقه دیگر دوباره تلاش کنید.'
         : indexRes.ok
           ? 'شاخص کل بورس دریافت نشد: ساختار پاسخ سرویس تشخیص داده نشد.'
           : `شاخص کل بورس دریافت نشد (کد ${indexRes.status}).`;
@@ -4115,7 +3438,7 @@ async function loadIndexAnalysis() {
       chgEl.textContent = '—';
       statusEl.style.display = 'block';
       statusEl.textContent = res.status === 429
-        ? 'دریافت شاخص با محدودیت نرخ مواجه شد — کلید شخصی BrsApi خود را در تنظیمات وارد کنید.'
+        ? 'دریافت شاخص با محدودیت درخواست مواجه شد — چند دقیقه دیگر دوباره تلاش کنید.'
         : res.ok
           ? 'ساختار پاسخ سرویس شاخص شناسایی نشد.'
           : `دریافت شاخص ناموفق بود (کد ${res.status}).`;
@@ -4926,33 +4249,6 @@ function findPullbackZones(candles, structureType) {
   };
 }
 
-
-function findBreakoutTrigger(candles, support, resistance) {
-  const { highs, lows } = findSwings(candles, 1);
-  const last = candles[candles.length - 1];
-  const prev = candles[candles.length - 2] || last;
-  const avgRange = candles.slice(-12).reduce((sum,c) => sum + (c.h-c.l), 0) / Math.max(1, Math.min(12,candles.length));
-  const buffer = Math.max(avgRange * 0.08, Math.abs(resistance-support) * 0.006);
-  const lastSwingHigh = highs.length ? highs[highs.length-1].price : resistance;
-  const lastSwingLow = lows.length ? lows[lows.length-1].price : support;
-  const upTrigger = Math.max(resistance, lastSwingHigh) + buffer;
-  const downTrigger = Math.min(support, lastSwingLow) - buffer;
-
-  if (last.c > upTrigger && prev.c <= upTrigger) {
-    return { type:'bullish', label:'شکست صعودی فعال', level:upTrigger, desc:'قیمت با بسته‌شدن بالای تریگر مقاومت، شکست صعودی را فعال کرده است.' };
-  }
-  if (last.c < downTrigger && prev.c >= downTrigger) {
-    return { type:'bearish', label:'شکست نزولی فعال', level:downTrigger, desc:'قیمت با بسته‌شدن زیر تریگر حمایت، شکست نزولی را فعال کرده است.' };
-  }
-  if (last.c >= upTrigger * 0.997 && last.c <= upTrigger * 1.003) {
-    return { type:'bullish-pending', label:'در آستانه شکست صعودی', level:upTrigger, desc:'قیمت نزدیک تریگر مقاومت است؛ تأیید با بسته‌شدن کندل بالای سطح انجام شود.' };
-  }
-  if (last.c <= downTrigger * 1.003 && last.c >= downTrigger * 0.997) {
-    return { type:'bearish-pending', label:'در آستانه شکست نزولی', level:downTrigger, desc:'قیمت نزدیک تریگر حمایت است؛ تأیید با بسته‌شدن کندل زیر سطح انجام شود.' };
-  }
-  return { type:'neutral', label:'تریگر شکست در انتظار تأیید', level: last.c >= resistance ? upTrigger : downTrigger, desc:'هنوز شکست معتبر تأیید نشده؛ بسته‌شدن کندل پشت سطح برای فعال‌شدن تریگر لازم است.' };
-}
-
 /* ---------- Chart rendering ---------- */
 
 function findCandleIndexByPrice(candles, price, useHigh) {
@@ -4965,33 +4261,31 @@ function findCandleIndexByPrice(candles, price, useHigh) {
   return bestIdx;
 }
 
-function drawCandleChart(candles, support, resistance, orderBlock, liquidity, isBourse, pullback, breakout, opts) {
+function drawCandleChart(candles, support, resistance, orderBlock, liquidity, isBourse, pullback) {
   const fmtAxis = isBourse ? fmtRial : fmtPrice;
-  const svg = (opts && opts.svgEl) || document.getElementById('chartSvg');
-  const W = 720, H = 340, padR = 72, R = W - padR;
+  const svg = document.getElementById('chartSvg');
+  const W = 720, H = 260;
   const padTop = 16, padBottom = 24, padX = 12;
   const n = candles.length;
 
-  const plan = (opts && 'plan' in opts) ? opts.plan : (typeof currentTradePlan !== 'undefined' ? currentTradePlan : null);
   const allVals = candles.flatMap(c => [c.h, c.l]).concat([support, resistance]);
-  if (plan) allVals.push(plan.entry, plan.stop, plan.tps[0], plan.tps[1], plan.tps[2]);
   const min = Math.min(...allVals);
   const max = Math.max(...allVals);
   const range = (max - min) || 1;
 
-  const slotW = (R - padX) / n;
+  const slotW = (W - padX * 2) / n;
   const bodyW = Math.max(2, slotW * 0.6);
   const yFor = v => padTop + (1 - (v - min) / range) * (H - padTop - padBottom);
   const xFor = i => padX + i * slotW + slotW / 2;
 
-  let svgContent = `<defs><linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101a15"/><stop offset="1" stop-color="#070908"/></linearGradient></defs><rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="url(#cbg)"/><rect x="${R}" y="0" width="${padR}" height="${H}" fill="#000" opacity="0.35"/>`;
+  let svgContent = '';
 
   // Y-axis price grid (عدد روی چارت)
   const gridCount = 4;
   for (let g = 0; g <= gridCount; g++) {
     const v = min + (range * g / gridCount);
     const y = yFor(v);
-    svgContent += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${R}" y2="${y.toFixed(1)}" stroke="#232A3B" stroke-width="0.6" opacity="0.55"/>`;
+    svgContent += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${W-padX}" y2="${y.toFixed(1)}" stroke="#232A3B" stroke-width="0.6" opacity="0.55"/>`;
     svgContent += `<text x="${(padX+3).toFixed(1)}" y="${(y-3).toFixed(1)}" text-anchor="start" fill="#5A6379" font-size="8.5" font-family="Vazirmatn">${fmtAxis(v)}</text>`;
   }
 
@@ -4999,19 +4293,19 @@ function drawCandleChart(candles, support, resistance, orderBlock, liquidity, is
   const zoneBuffer = (resistance - support) * 0.22;
   const buyZoneTop = Math.min(support + zoneBuffer, max);
   const yBuyTop = yFor(buyZoneTop), yBuyBot = yFor(support);
-  svgContent += `<rect x="${padX}" y="${yBuyTop.toFixed(1)}" width="${R-padX}" height="${Math.max(1,(yBuyBot-yBuyTop)).toFixed(1)}" fill="#3DDC97" opacity="0.07"/>`;
+  svgContent += `<rect x="${padX}" y="${yBuyTop.toFixed(1)}" width="${W-padX*2}" height="${Math.max(1,(yBuyBot-yBuyTop)).toFixed(1)}" fill="#3DDC97" opacity="0.07"/>`;
   const sellZoneBot = Math.max(resistance - zoneBuffer, min);
   const ySellTop = yFor(resistance), ySellBot = yFor(sellZoneBot);
-  svgContent += `<rect x="${padX}" y="${ySellTop.toFixed(1)}" width="${R-padX}" height="${Math.max(1,(ySellBot-ySellTop)).toFixed(1)}" fill="#FF5C72" opacity="0.07"/>`;
+  svgContent += `<rect x="${padX}" y="${ySellTop.toFixed(1)}" width="${W-padX*2}" height="${Math.max(1,(ySellBot-ySellTop)).toFixed(1)}" fill="#FF5C72" opacity="0.07"/>`;
 
   // Liquidity zones (horizontal bands)
   (liquidity.sellSideLiquidity || []).forEach(z => {
     const y = yFor(z.price);
-    svgContent += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${R}" y2="${y.toFixed(1)}" stroke="#F2B84B" stroke-width="1" stroke-dasharray="2,3" opacity="0.5"/>`;
+    svgContent += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${W-padX}" y2="${y.toFixed(1)}" stroke="#F2B84B" stroke-width="1" stroke-dasharray="2,3" opacity="0.5"/>`;
   });
   (liquidity.buySideLiquidity || []).forEach(z => {
     const y = yFor(z.price);
-    svgContent += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${R}" y2="${y.toFixed(1)}" stroke="#F2B84B" stroke-width="1" stroke-dasharray="2,3" opacity="0.5"/>`;
+    svgContent += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${W-padX}" y2="${y.toFixed(1)}" stroke="#F2B84B" stroke-width="1" stroke-dasharray="2,3" opacity="0.5"/>`;
   });
 
   // Pullback vector — فقط کنار سقف/کف سوئینگ رسم می‌شود، نه در عرض کامل چارت
@@ -5037,8 +4331,8 @@ function drawCandleChart(candles, support, resistance, orderBlock, liquidity, is
       if (!z || z.price < min || z.price > max) return;
       const y = yFor(z.price);
       const x1 = Math.max(padX, anchorX - tickLen / 2);
-      const x2 = Math.min(R, anchorX + tickLen / 2);
-      const labelAtEnd = x2 < R - 4;
+      const x2 = Math.min(W - padX, anchorX + tickLen / 2);
+      const labelAtEnd = x2 < W - padX - 4;
       svgContent += `<line x1="${x1.toFixed(1)}" y1="${y.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${color}" stroke-width="1.3" stroke-dasharray="3,3" opacity="0.85"/>`;
       svgContent += `<text x="${(labelAtEnd ? x2 : x1).toFixed(1)}" y="${(y-4).toFixed(1)}" text-anchor="${labelAtEnd ? 'end' : 'start'}" fill="${color}" font-size="9.5" font-weight="700" font-family="Vazirmatn">${label}</text>`;
     });
@@ -5049,46 +4343,17 @@ function drawCandleChart(candles, support, resistance, orderBlock, liquidity, is
     const yTop = yFor(orderBlock.high);
     const yBot = yFor(orderBlock.low);
     const color = orderBlock.type === 'bullish' ? '#3DDC97' : '#FF5C72';
-    svgContent += `<rect x="${padX}" y="${Math.min(yTop,yBot).toFixed(1)}" width="${R-padX}" height="${Math.max(2,Math.abs(yBot-yTop)).toFixed(1)}" fill="${color}" opacity="0.08"/>`;
-    svgContent += `<line x1="${padX}" y1="${yTop.toFixed(1)}" x2="${R}" y2="${yTop.toFixed(1)}" stroke="${color}" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>`;
+    svgContent += `<rect x="${padX}" y="${Math.min(yTop,yBot).toFixed(1)}" width="${W-padX*2}" height="${Math.max(2,Math.abs(yBot-yTop)).toFixed(1)}" fill="${color}" opacity="0.08"/>`;
+    svgContent += `<line x1="${padX}" y1="${yTop.toFixed(1)}" x2="${W-padX}" y2="${yTop.toFixed(1)}" stroke="${color}" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>`;
   }
 
   // Support / resistance
   const yS = yFor(support);
   const yR = yFor(resistance);
-  svgContent += `<line x1="${padX}" y1="${yR.toFixed(1)}" x2="${R}" y2="${yR.toFixed(1)}" stroke="#FF5C72" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.9"/>`;
-  svgContent += `<text x="${R}" y="${(yR-6).toFixed(1)}" text-anchor="end" fill="#FF5C72" font-size="10.5" font-weight="700" font-family="Vazirmatn">${fmtAxis(resistance)}</text>`;
-  svgContent += `<line x1="${padX}" y1="${yS.toFixed(1)}" x2="${R}" y2="${yS.toFixed(1)}" stroke="#3DDC97" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.9"/>`;
-  svgContent += `<text x="${R}" y="${(yS+14).toFixed(1)}" text-anchor="end" fill="#3DDC97" font-size="10.5" font-weight="700" font-family="Vazirmatn">${fmtAxis(support)}</text>`;
-
-  // Breakout trigger
-  if (breakout && breakout.level >= min && breakout.level <= max) {
-    const yT = yFor(breakout.level);
-    const triggerColor = breakout.type === 'bearish' || breakout.type === 'bearish-pending' ? '#FF5C72' : '#FFB020';
-    svgContent += `<line x1="${padX}" y1="${yT.toFixed(1)}" x2="${R}" y2="${yT.toFixed(1)}" stroke="${triggerColor}" stroke-width="1.8" stroke-dasharray="7,4" opacity="0.95"/>`;
-    svgContent += `<rect x="${R-156}" y="${Math.max(2,yT-16).toFixed(1)}" width="144" height="17" rx="6" fill="#0B1020" stroke="${triggerColor}" stroke-width="0.8" opacity="0.96"/>`;
-    svgContent += `<text x="${R-84}" y="${(yT-4).toFixed(1)}" text-anchor="middle" fill="${triggerColor}" font-size="9.5" font-weight="800" font-family="Vazirmatn">⚡ تریگر شکست ${fmtAxis(breakout.level)}</text>`;
-  }
-
-  // ===== نقشه معامله: ورود / حد ضرر / حد سود =====
-  const tags = [];
-  if (plan) {
-    const clampY = v => Math.min(H - padBottom, Math.max(padTop, yFor(v)));
-    const yE = clampY(plan.entry), yS2 = clampY(plan.stop), yT2 = clampY(plan.tps[1]);
-    svgContent += `<rect x="${padX}" y="${Math.min(yE,yS2).toFixed(1)}" width="${R-padX}" height="${Math.abs(yE-yS2).toFixed(1)}" fill="#FF5C72" opacity="0.10"/>`;
-    svgContent += `<rect x="${padX}" y="${Math.min(yE,yT2).toFixed(1)}" width="${R-padX}" height="${Math.abs(yE-yT2).toFixed(1)}" fill="#3DDC97" opacity="0.09"/>`;
-    const items = [
-      { v: plan.stop, c: '#FF5C72', t: 'SL · حد ضرر', w: 1.8, d: '' },
-      { v: plan.entry, c: '#5B9CF6', t: 'ورود', w: 1.6, d: '4,3' }
-    ].concat(plan.tps.map((v, k) => ({ v, c: '#3DDC97', t: `TP${k+1} · حد سود ${k+1}`, w: 1.3, d: '6,4' })));
-    items.forEach(it => {
-      if (it.v < min - range * 0.02 || it.v > max + range * 0.02) return;
-      const y = clampY(it.v);
-      svgContent += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${R}" y2="${y.toFixed(1)}" stroke="${it.c}" stroke-width="${it.w}" ${it.d ? `stroke-dasharray="${it.d}"` : ''} opacity="0.95"/>`;
-      svgContent += `<text x="${padX+4}" y="${(y-3.5).toFixed(1)}" fill="${it.c}" font-size="9.5" font-weight="800" font-family="Vazirmatn">${it.t}</text>`;
-      tags.push({ y, c: it.c, t: fmtAxis(it.v), fg: '#04120b' });
-    });
-  }
+  svgContent += `<line x1="${padX}" y1="${yR.toFixed(1)}" x2="${W-padX}" y2="${yR.toFixed(1)}" stroke="#FF5C72" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.9"/>`;
+  svgContent += `<text x="${W-padX}" y="${(yR-6).toFixed(1)}" text-anchor="end" fill="#FF5C72" font-size="10.5" font-weight="700" font-family="Vazirmatn">${fmtAxis(resistance)}</text>`;
+  svgContent += `<line x1="${padX}" y1="${yS.toFixed(1)}" x2="${W-padX}" y2="${yS.toFixed(1)}" stroke="#3DDC97" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.9"/>`;
+  svgContent += `<text x="${W-padX}" y="${(yS+14).toFixed(1)}" text-anchor="end" fill="#3DDC97" font-size="10.5" font-weight="700" font-family="Vazirmatn">${fmtAxis(support)}</text>`;
 
   // Candles
   candles.forEach((c, i) => {
@@ -5102,7 +4367,7 @@ function drawCandleChart(candles, support, resistance, orderBlock, liquidity, is
     const bodyTop = Math.min(yOpen, yClose);
     const bodyHeight = Math.max(1.5, Math.abs(yClose - yOpen));
 
-    svgContent += `<line x1="${x.toFixed(1)}" y1="${yHigh.toFixed(1)}" x2="${x.toFixed(1)}" y2="${yLow.toFixed(1)}" stroke="${color}" stroke-width="1.4" stroke-linecap="round"/>`;
+    svgContent += `<line x1="${x.toFixed(1)}" y1="${yHigh.toFixed(1)}" x2="${x.toFixed(1)}" y2="${yLow.toFixed(1)}" stroke="${color}" stroke-width="1"/>`;
     svgContent += `<rect x="${(x - bodyW/2).toFixed(1)}" y="${bodyTop.toFixed(1)}" width="${bodyW.toFixed(1)}" height="${bodyHeight.toFixed(1)}" fill="${color}" rx="1"/>`;
   });
 
@@ -5110,63 +4375,15 @@ function drawCandleChart(candles, support, resistance, orderBlock, liquidity, is
   const lastC = candles[candles.length - 1];
   const lastX = xFor(n - 1);
   const lastY = yFor(lastC.c);
-  svgContent += `<line x1="${padX}" y1="${lastY.toFixed(1)}" x2="${R}" y2="${lastY.toFixed(1)}" stroke="#E8EAF0" stroke-width="0.6" stroke-dasharray="1,3" opacity="0.4"/>`;
+  svgContent += `<line x1="${padX}" y1="${lastY.toFixed(1)}" x2="${W-padX}" y2="${lastY.toFixed(1)}" stroke="#E8EAF0" stroke-width="0.6" stroke-dasharray="1,3" opacity="0.4"/>`;
   svgContent += `<circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="4" fill="#E8EAF0"/>`;
   svgContent += `<circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="8" fill="#E8EAF0" opacity="0.2"/>`;
-  const priceLabelAnchor = lastX > R - 90 ? 'end' : 'start';
-  const priceLabelX = lastX > R - 90 ? (lastX - 10) : (lastX + 10);
+  const priceLabelAnchor = lastX > W - 90 ? 'end' : 'start';
+  const priceLabelX = lastX > W - 90 ? (lastX - 10) : (lastX + 10);
+  svgContent += `<text x="${priceLabelX.toFixed(1)}" y="${(lastY-9).toFixed(1)}" text-anchor="${priceLabelAnchor}" fill="#E8EAF0" font-size="10" font-weight="800" font-family="Vazirmatn">${fmtAxis(lastC.c)}</text>`;
 
-  tags.push({ y: lastY, c: '#E8EAF0', t: fmtAxis(lastC.c), fg: '#000' });
-  tags.sort((p, q) => p.y - q.y);
-  for (let i = 1; i < tags.length; i++) if (tags[i].y - tags[i-1].y < 14) tags[i].y = tags[i-1].y + 14;
-  tags.forEach(t => {
-    svgContent += `<polygon points="${R},${t.y.toFixed(1)} ${R+5},${(t.y-7).toFixed(1)} ${R+5},${(t.y+7).toFixed(1)}" fill="${t.c}"/><rect x="${R+5}" y="${(t.y-7).toFixed(1)}" width="${padR-7}" height="14" rx="3" fill="${t.c}"/>`;
-    svgContent += `<text x="${(R+5+(padR-7)/2).toFixed(1)}" y="${(t.y+3.5).toFixed(1)}" text-anchor="middle" fill="${t.fg}" font-size="9" font-weight="800" font-family="Vazirmatn">${t.t}</text>`;
-  });
-  svg.__geom = { candles, padX, slotW, W, n, fmt: fmtAxis };
-  svgContent += '<g id="chartCross" pointer-events="none"></g>';
-  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   svg.innerHTML = svgContent;
 }
-
-// ===== اندیکاتورهای ATR و MACD =====
-function calcATR(candles, period = 14) {
-  if (!candles || candles.length < 4) return null;
-  const tr = [];
-  for (let i = 1; i < candles.length; i++) {
-    const c = candles[i], pc = candles[i-1].c;
-    tr.push(Math.max(c.h - c.l, Math.abs(c.h - pc), Math.abs(c.l - pc)));
-  }
-  const p = Math.min(period, tr.length);
-  let atr = tr.slice(0, p).reduce((a, b) => a + b, 0) / p;
-  for (let i = p; i < tr.length; i++) atr = (atr * (p - 1) + tr[i]) / p;
-  return atr;
-}
-function calcMACD(closes) {
-  const n = closes.length; let f = 12, sl = 26, sg = 9, short = false;
-  if (n < 35) { f = 5; sl = 13; sg = 4; short = true; }
-  if (n < sl + sg) return null;
-  const ema = (arr, per) => { const k = 2 / (per + 1), o = [arr[0]]; for (let i = 1; i < arr.length; i++) o.push(arr[i] * k + o[i-1] * (1 - k)); return o; };
-  const ef = ema(closes, f), es = ema(closes, sl), m = ef.map((v, i) => v - es[i]), sig = ema(m, sg);
-  const h = m.map((v, i) => v - sig[i]);
-  return { macd: m[n-1], signal: sig[n-1], hist: h[n-1], prevHist: h[n-2], short };
-}
-(function setupChartCrosshair(){
-  const clearAll = svg => { const cg = svg && svg.querySelector('#chartCross'); if (cg) cg.innerHTML = ''; };
-  const show = e => {
-    const svg = e.target && e.target.closest ? e.target.closest('svg.chart-svg') : null; if (!svg) return;
-    const g = svg.__geom, cg = svg.querySelector('#chartCross'); if (!g || !cg) return;
-    const r = svg.getBoundingClientRect(), x = (e.clientX - r.left) / r.width * g.W;
-    const i = Math.floor((x - g.padX) / g.slotW); if (i < 0 || i >= g.n) { clearAll(svg); return; }
-    const c = g.candles[i], cx = g.padX + i * g.slotW + g.slotW / 2, f = g.fmt, up = c.c >= c.o;
-    const chg = ((c.c - c.o) / c.o * 100).toFixed(1).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
-    cg.innerHTML = `<line x1="${cx.toFixed(1)}" y1="0" x2="${cx.toFixed(1)}" y2="340" stroke="#E8EAF0" stroke-width="0.7" stroke-dasharray="3,3" opacity="0.6"/>
-      <rect x="6" y="4" width="${g.W-84}" height="19" rx="6" fill="#0B1210" stroke="${up?'#3DDC97':'#FF5C72'}" stroke-width="0.8" opacity="0.96"/>
-      <text x="12" y="17" fill="#E8EAF0" font-size="9.5" font-family="Vazirmatn">باز ${f(c.o)} · بالا ${f(c.h)} · پایین ${f(c.l)} · بسته ${f(c.c)} · <tspan fill="${up?'#3DDC97':'#FF5C72'}" font-weight="800">${up?'▲':'▼'} ${chg}٪</tspan></text>`;
-  };
-  document.addEventListener('pointermove', show); document.addEventListener('pointerdown', show);
-  document.addEventListener('pointerout', e => { const svg = e.target && e.target.closest ? e.target.closest('svg.chart-svg') : null; if (svg && !svg.contains(e.relatedTarget)) clearAll(svg); });
-})();
 
 function computeSignalVotes(d, fmtAny) {
   const votes = [];
@@ -5200,17 +4417,6 @@ function computeSignalVotes(d, fmtAny) {
     if (d.price > d.pivots.pp) votes.push({ label: 'موقعیت نسبت به Pivot', verdict: 'buy', note: `قیمت بالای نقطه pivot (${fmtAny(d.pivots.pp)}) است.` });
     else votes.push({ label: 'موقعیت نسبت به Pivot', verdict: 'sell', note: `قیمت پایین‌تر از نقطه pivot (${fmtAny(d.pivots.pp)}) است.` });
   }
-
-  // 6) MACD
-  const mc = calcMACD(d.candles.map(c => c.c));
-  if (mc) {
-    const cross = mc.prevHist != null && Math.sign(mc.prevHist) !== Math.sign(mc.hist);
-    const v = mc.hist > 0 ? 'buy' : mc.hist < 0 ? 'sell' : 'neutral';
-    votes.push({ label: 'MACD', verdict: v, note: (mc.hist > 0 ? 'MACD بالای خط سیگنال است' : 'MACD پایین خط سیگنال است') + (cross ? ' (تقاطع تازه)' : '') + (mc.short ? ' · نسخه کوتاه‌شده به‌دلیل تعداد کم کندل' : '') + '.' });
-  }
-  // 7) ATR
-  const atrV = calcATR(d.candles);
-  if (atrV) votes.push({ label: 'ATR (نوسان)', verdict: 'neutral', note: `ATR برابر ${fmtAny(atrV)} (${(atrV / d.price * 100).toFixed(1).replace(/\d/g, x => '۰۱۲۳۴۵۶۷۸۹'[x])}٪ قیمت)؛ حد ضرر پیشنهادی ۱٫۵ برابر ATR از ورود است.` });
 
   const buyCount = votes.filter(v => v.verdict === 'buy').length;
   const sellCount = votes.filter(v => v.verdict === 'sell').length;
@@ -5273,7 +4479,7 @@ function redrawChartWithZoom() {
   const d = currentChartD;
   const visibleCount = Math.min(chartZoomLevels[chartZoomIndex], d.candles.length);
   const visibleCandles = d.candles.slice(-visibleCount);
-  drawCandleChart(visibleCandles, d.support, d.resistance, d.orderBlock, d.liquidity, d.isBourse, d.pullback, d.breakout);
+  drawCandleChart(visibleCandles, d.support, d.resistance, d.orderBlock, d.liquidity, d.isBourse, d.pullback);
   const readout = document.getElementById('chartZoomReadout');
   if (readout) readout.textContent = visibleCount.toLocaleString('fa-IR') + ' کندل';
   const zoomInBtn = document.getElementById('chartZoomInBtn');
@@ -5396,7 +4602,6 @@ async function buildAnalysisData(symbol, tf, isBourse, isMetal) {
   const orderBlock = findLastOrderBlock(candles);
   const liquidity = findLiquidityZones(candles);
   const pullback = findPullbackZones(candles, structure.type);
-  const breakout = findBreakoutTrigger(candles, support, resistance);
 
   return {
     symbol, isMetal, isBourse, bourseName: data.fullName,
@@ -5405,7 +4610,7 @@ async function buildAnalysisData(symbol, tf, isBourse, isMetal) {
     volume: data.volume, hasVolume: data.hasVolume,
     bidPrice: data.bidPrice || null, askPrice: data.askPrice || null,
     rsi, ma, trendUp, volatility, support, resistance, pivots,
-    candles, structure, orderBlock, liquidity, pullback, breakout, tf, auxRanges
+    candles, structure, orderBlock, liquidity, pullback, tf, auxRanges
   };
 }
 
@@ -5704,18 +4909,8 @@ function renderResult(d) {
   }
 
   currentChartD = d;
-  currentTradePlan = null;
   chartZoomIndex = 0;
   redrawChartWithZoom();
-
-  const btcText = document.getElementById('breakoutTriggerText');
-  const btcBadge = document.getElementById('breakoutTriggerBadge');
-  const btcCard = document.getElementById('breakoutTriggerCard');
-  if (btcText && btcBadge && btcCard && d.breakout) {
-    btcText.textContent = `${d.breakout.desc} سطح تریگر: ${fmtAny(d.breakout.level)}`;
-    btcBadge.textContent = d.breakout.label;
-    btcCard.className = 'breakout-trigger-card ' + (d.breakout.type || 'neutral');
-  }
 
   // Recommendation card
   const recCard = document.getElementById('recCard');
@@ -5747,15 +4942,13 @@ function renderResult(d) {
     // سناریوی فروش/خروج: ورود نزدیک پولبک رو به بالا یا مقاومت، حد ضرر بالای مقاومت، حد سود نزدیک حمایت
     entryPrice = (d.pullback && d.pullback.direction === 'up' && d.pullback.nearest.price > d.price)
       ? d.pullback.nearest.price : d.resistance;
-    const atrS = calcATR(d.candles);
-    stopPrice = atrS ? entryPrice + 1.5 * atrS : (d.pivots ? Math.max(d.pivots.r2, entryPrice * 1.015) : entryPrice * 1.02);
+    stopPrice = d.pivots ? Math.max(d.pivots.r2, entryPrice * 1.015) : entryPrice * 1.02;
     targetPrice = d.pivots ? d.pivots.s2 : d.support;
   } else {
     // سناریوی خرید (یا نگهداری با دید محتاطانه): ورود نزدیک پولبک رو به پایین یا حمایت، حد ضرر زیر حمایت، حد سود نزدیک مقاومت
     entryPrice = (d.pullback && d.pullback.direction === 'down' && d.pullback.nearest.price < d.price)
       ? d.pullback.nearest.price : d.support;
-    const atrB = calcATR(d.candles);
-    stopPrice = atrB ? entryPrice - 1.5 * atrB : (d.pivots ? Math.min(d.pivots.s2, entryPrice * 0.985) : entryPrice * 0.98);
+    stopPrice = d.pivots ? Math.min(d.pivots.s2, entryPrice * 0.985) : entryPrice * 0.98;
     targetPrice = d.pivots ? d.pivots.r2 : d.resistance;
   }
   const riskPerUnit = Math.abs(entryPrice - stopPrice);
@@ -5768,12 +4961,14 @@ function renderResult(d) {
   document.getElementById('rrEntryValue').textContent = fmtAny(entryPrice);
   document.getElementById('rrStopValue').textContent = fmtAny(stopPrice);
 
-  // چهار حد سود پلکانی
+  // ۴ حد سود پلکانی در همان جهت هدف اصلی (targetPrice): هدف ۲ همان هدف اصلی محاسبه‌شده
+  // بر اساس سطوح حمایت/مقاومت است؛ اهداف ۱ تا ۴ با نسبت‌های مختلف از فاصله ورود تا هدف اصلی
+  // ساخته می‌شوند تا خروج پلکانی (ذخیره سود تدریجی) ممکن باشد.
   const targetDelta = targetPrice - entryPrice;
-  const tp1 = entryPrice + targetDelta * 0.40;
-  const tp2 = entryPrice + targetDelta * 0.75;
-  const tp3 = entryPrice + targetDelta * 1.05;
-  const tp4 = entryPrice + targetDelta * 1.35;
+  const tp1 = entryPrice + targetDelta * 0.5;
+  const tp2 = targetPrice;
+  const tp3 = entryPrice + targetDelta * 1.6;
+  const tp4 = entryPrice + targetDelta * 2.3;
   document.getElementById('rrTarget1').textContent = fmtAny(tp1);
   document.getElementById('rrTarget2').textContent = fmtAny(tp2);
   document.getElementById('rrTarget3').textContent = fmtAny(tp3);
@@ -5781,11 +4976,9 @@ function renderResult(d) {
 
   document.getElementById('rrRatioValue').textContent = rrRatio ? `۱ : ${rrRatio.toFixed(2)}` : '—';
   document.getElementById('rrNote').textContent =
-    `نقطه ورود بر اساس ${d.pullback ? 'نزدیک‌ترین ناحیه پولبک و ' : ''}سطوح حمایت/مقاومت محاسبه شده است. چهار هدف برای خروج پلکانی در نظر گرفته شده: هدف ۱ محافظه‌کارانه، هدف ۲ اصلی، هدف ۳ ادامه حرکت و هدف ۴ هدف کشیده‌شده برای حرکت قوی‌تر. این صرفاً پیشنهاد خودکار است؛ حد ضرر و حد سود را متناسب با استراتژی خودتان تنظیم کنید.`;
+    `نقطه ورود بر اساس ${d.pullback ? 'نزدیک‌ترین ناحیه پولبک و ' : ''}سطوح حمایت/مقاومت محاسبه شده است. هدف ۲ همان هدف اصلی سیستم است؛ اهداف ۱ و ۳ و ۴ برای خروج پلکانی (ذخیره سود تدریجی) اضافه شده‌اند. این صرفاً پیشنهاد خودکار است؛ حد ضرر و حد سود را متناسب با استراتژی خودتان تنظیم کنید.`;
 
   currentRR = { entryPrice, stopPrice, targetPrice, riskPerUnit, rewardPerUnit, rrRatio, fmtAny };
-  currentTradePlan = { entry: entryPrice, stop: stopPrice, tps: [tp1, tp2, tp3, tp4] };
-  redrawChartWithZoom();
   updateRiskRewardCalc();
   populateSignalTab(d, fmtAny);
 
@@ -6197,7 +5390,8 @@ document.querySelectorAll('.main-nav-tab').forEach(tab => {
       optionsView.style.display = 'block';
       const w5 = document.getElementById('optKeyWarning');
       if (w5) w5.style.display = (isUsingSharedKey()) ? 'block' : 'none';
-      loadOptTop(false);
+      renderOptionsList();
+      getOptionSymbols().forEach(sym => { if (!OPT_CACHE[sym]) analyzeOptionSymbol(sym); });
     } else if (tab.dataset.view === 'rights') {
       rightsView.style.display = 'block';
       const w6 = document.getElementById('rgtKeyWarning');
@@ -6554,22 +5748,7 @@ document.getElementById('rpToggleBtn').addEventListener('click', () => {
 });
 document.getElementById('moRefreshBtn').addEventListener('click', fetchMarketOverview);
 
-// --- تنظیمات: کلید شخصی BrsApi ---
-function refreshSettingsBrsStatus() {
-  const statusEl = document.getElementById('settingsBrsStatus');
-  const keyInput = document.getElementById('settingsBrsKeyInput');
-  let userKey = null;
-  try { userKey = localStorage.getItem(BRS_USER_KEY_STORAGE); } catch (e) { /* ignore */ }
-  if (userKey && userKey.trim()) {
-    statusEl.textContent = 'در حال استفاده از کلید شخصی شما';
-    statusEl.className = 'settings-status custom';
-    keyInput.value = userKey.trim();
-  } else {
-    statusEl.textContent = 'در حال استفاده از کلید رایگان مشترک';
-    statusEl.className = 'settings-status';
-    keyInput.value = '';
-  }
-}
+function refreshSettingsBrsStatus() {}
 
 // ═══════════════════════════════════════════════════════════════
 // رد پول بورس ایران
@@ -7277,7 +6456,7 @@ async function loadEmaSignals(force) {
   btn.disabled = false;
   btn.textContent = origLabel;
   progress.textContent = stoppedForSharedKeyLimit
-    ? `متوقف شد — کلید مشترک به محدودیت خورد (${done} از ${total} بررسی شد). کلید شخصی‌ات رو تو «تنظیمات» وارد کن و دوباره اسکن کن.`
+    ? `متوقف شد — محدودیت درخواست پر شد (${done} از ${total} بررسی شد). چند دقیقه دیگر دوباره اسکن کن.`
     : (emaCancelled ? `متوقف شد — ${done} از ${total} بررسی شد.` : `اسکن کامل شد — ${total} نماد بررسی شد.`);
   emaRenderAll();
 }
@@ -7576,7 +6755,7 @@ async function loadResSignals(force) {
   btn.disabled = false;
   btn.textContent = origLabel;
   progress.textContent = stoppedForSharedKeyLimit
-    ? `متوقف شد — کلید مشترک به محدودیت خورد (${done} از ${total} بررسی شد). کلید شخصی‌ات رو تو «تنظیمات» وارد کن و دوباره اسکن کن.`
+    ? `متوقف شد — محدودیت درخواست پر شد (${done} از ${total} بررسی شد). چند دقیقه دیگر دوباره اسکن کن.`
     : (resCancelled ? `متوقف شد — ${done} از ${total} بررسی شد.` : `اسکن کامل شد — ${total} نماد بررسی شد.`);
   resRenderAll();
 }
@@ -7892,22 +7071,6 @@ function fibRenderSuggestions() {
 document.getElementById('fibRefreshBtn').addEventListener('click', () => loadFibSignals(true));
 document.getElementById('fibSearch').addEventListener('input', e => fibRenderTable(e.target.value));
 
-document.getElementById('settingsBrsSaveBtn').addEventListener('click', () => {
-  const val = document.getElementById('settingsBrsKeyInput').value.trim();
-  if (!val) return;
-  try { localStorage.setItem(BRS_USER_KEY_STORAGE, val); } catch (e) { /* ignore */ }
-  refreshSettingsBrsStatus();
-  fetchMarketOverview();
-  const w = document.getElementById('emaKeyWarning');
-  if (w) w.style.display = 'none';
-  emaLoaded = false; // با کلید جدید، اسکن بعدی از نو انجام شود
-});
-document.getElementById('settingsBrsClearBtn').addEventListener('click', () => {
-  try { localStorage.removeItem(BRS_USER_KEY_STORAGE); } catch (e) { /* ignore */ }
-  refreshSettingsBrsStatus();
-  emaLoaded = false;
-  fetchMarketOverview();
-});
 refreshSettingsBrsStatus();
 
 // --- تب «اختیار معامله» ---
@@ -8069,8 +7232,17 @@ function renderOptionsList() {
         قیمت فعلی: <b style="color:var(--text)">${x.price.toLocaleString('fa-IR')}</b>
         ${topReason ? ' · ' + escapeHtml(topReason.note) : ''}
       </div>
-      ${optLevelsTable(L, x)}
-      ${optDetailHtml(x)}
+      <div class="rp-tbl-wrap">
+        <table class="rp-tbl">
+          <thead><tr><th>نقطه ورود</th><th>خروج ۱ روزه</th><th>خروج ۱ هفته</th><th>خروج ۱ ماهه</th></tr></thead>
+          <tbody><tr>
+            <td style="color:var(--green);font-weight:700">${L.entry.toLocaleString('fa-IR')}</td>
+            <td style="color:var(--blue);font-weight:700">${L.exit1d.toLocaleString('fa-IR')}</td>
+            <td style="color:var(--purple);font-weight:700">${L.exit1w.toLocaleString('fa-IR')}</td>
+            <td style="color:var(--red);font-weight:700">${L.exit1m.toLocaleString('fa-IR')}</td>
+          </tr></tbody>
+        </table>
+      </div>
       <button class="screener-refresh-btn opt-chart-toggle" data-sym="${escapeHtml(sym)}" style="align-self:flex-start;">${x.chartOpen ? '▲ بستن چارت' : '📊 نمایش چارت کندل'}</button>
       <div id="optChart_${escapeHtml(sym)}" style="display:${x.chartOpen ? 'block' : 'none'};background:#0B0E14;border:1px solid var(--line);border-radius:10px;padding:8px;"></div>
     </div>`;
@@ -8101,8 +7273,6 @@ function renderOptionsList() {
     });
   });
 }
-const _optRenderBase = renderOptionsList;
-renderOptionsList = function(){ _optRenderBase(); renderOptChain(); };
 
 document.querySelectorAll('#optFilterBar [data-optf]').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -8113,132 +7283,6 @@ document.querySelectorAll('#optFilterBar [data-optf]').forEach(btn => {
   });
 });
 
-// ===== تحلیل قرارداد اختیار: مشخصات، ارزش ذاتی/زمانی، یونانی‌ها، دارایی پایه =====
-const OPT_RISK_FREE = 0.25; // نرخ بدون ریسک سالانه (تقریبی)
-function optToEn(str){ return String(str||'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)); }
-function optJ2G(jy,jm,jd){
-  jy+=1595; let days=-355668+(365*jy)+(~~(jy/33))*8+~~(((jy%33)+3)/4)+jd+((jm<7)?(jm-1)*31:((jm-7)*30)+186);
-  let gy=400*~~(days/146097); days%=146097;
-  if(days>36524){gy+=100*~~(--days/36524); days%=36524; if(days>=365)days++;}
-  gy+=4*~~(days/1461); days%=1461;
-  if(days>365){gy+=~~((days-1)/365); days=(days-1)%365;}
-  let gd=days+1; const sal=[0,31,((gy%4==0&&gy%100!=0)||gy%400==0)?29:28,31,30,31,30,31,31,30,31,30,31];
-  let gm; for(gm=0;gm<13&&gd>sal[gm];gm++) gd-=sal[gm]; return [gy,gm,gd];
-}
-function parseOptionContract(fullName, sym){
-  const n = optToEn(fullName).replace(/\s+/g,' ').trim();
-  const m = n.match(/^(\S*?اختیار\S*)\s+(.+?)\s*-\s*(\d+(?:\.\d+)?)\s*-\s*(\d{4})\/?(\d{2})\/?(\d{2})\s*$/);
-  if (!m) return null;
-  const isCall = /خ$/.test(m[1]) || (!/ف$/.test(m[1]) && /^ض/.test(sym));
-  const isPut = /ف$/.test(m[1]) || /^ط/.test(sym);
-  const [gy,gm,gd] = optJ2G(+m[4],+m[5],+m[6]);
-  const exp = new Date(gy,gm-1,gd,23,59,0);
-  const daysLeft = Math.ceil((exp - Date.now())/86400000);
-  return { type: isPut && !isCall ? 'put' : 'call', underlying: m[2].trim(), strike: +m[3],
-           expiryFa: `${m[4]}/${m[5]}/${m[6]}`, daysLeft };
-}
-const optPhi = x => Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);
-function optN(x){ const t=1/(1+0.2316419*Math.abs(x)); const d=optPhi(x);
-  const p=d*t*(0.31938153+t*(-0.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429)))); return x>=0?1-p:p; }
-function optBS(type,S,K,T,r,v){
-  const sq=v*Math.sqrt(T), d1=(Math.log(S/K)+(r+v*v/2)*T)/sq, d2=d1-sq, disc=K*Math.exp(-r*T);
-  const price = type==='call' ? S*optN(d1)-disc*optN(d2) : disc*optN(-d2)-S*optN(-d1);
-  const delta = type==='call' ? optN(d1) : optN(d1)-1;
-  const th = -(S*optPhi(d1)*v)/(2*Math.sqrt(T)) + (type==='call' ? -r*disc*optN(d2) : r*disc*optN(-d2));
-  return { price, delta, theta: th/365, vega: S*optPhi(d1)*Math.sqrt(T)/100 };
-}
-function optImpliedVol(type,S,K,T,r,mkt){
-  let lo=0.01, hi=5; if (optBS(type,S,K,T,r,hi).price < mkt || optBS(type,S,K,T,r,lo).price > mkt) return null;
-  for(let i=0;i<60;i++){ const mid=(lo+hi)/2; (optBS(type,S,K,T,r,mid).price<mkt)?lo=mid:hi=mid; } return (lo+hi)/2;
-}
-function optHistVol(candles){
-  if(!candles||candles.length<6) return null; const r=[];
-  for(let i=1;i<candles.length;i++) r.push(Math.log(candles[i].c/candles[i-1].c));
-  const m=r.reduce((a,b)=>a+b,0)/r.length, v=r.reduce((a,b)=>a+(b-m)*(b-m),0)/(r.length-1);
-  return Math.sqrt(v*250);
-}
-function optCalc(c, P, S, underCandles){
-  const K=c.strike, call=c.type==='call', out={};
-  out.intrinsic = S? Math.max(0, call? S-K : K-S) : null;
-  out.timeValue = out.intrinsic!=null ? Math.max(0,P-out.intrinsic) : null;
-  out.moneyness = S ? (Math.abs(S-K)/K<0.02 ? 'ATM' : ((call?S>K:S<K) ? 'ITM' : 'OTM')) : null;
-  out.breakEven = call ? K+P : K-P;
-  out.beMovePct = S ? ((out.breakEven/S)-1)*100 : null;
-  out.leverage = S && P>0 ? S/P : null;
-  const T=Math.max(c.daysLeft,0)/365, hv=optHistVol(underCandles);
-  if (S && T>0 && hv) {
-    out.hv=hv; const g=optBS(c.type,S,K,T,OPT_RISK_FREE,hv); out.delta=g.delta; out.theta=g.theta; out.vega=g.vega; out.fair=g.price;
-    out.iv=optImpliedVol(c.type,S,K,T,OPT_RISK_FREE,P);
-  }
-  return out;
-}
-function optRisk(c, P, k, fallbackVol){
-  if(!k || k.beMovePct==null) return Math.min(95, Math.max(8, Math.round((fallbackVol||5)*4)));
-  const need = call=> Math.max(0, (c.type==='call'? k.beMovePct : -k.beMovePct));
-  let r = 30 + Math.min(35, need()*3);
-  r += c.daysLeft<=3 ? 20 : c.daysLeft<=7 ? 14 : c.daysLeft<=15 ? 7 : 0;
-  if (k.theta) r += Math.min(15, Math.abs(k.theta)/P*100*4);
-  if (k.moneyness==='ITM') r -= 8;
-  return Math.min(97, Math.max(8, Math.round(r)));
-}
-
-// ===== سیگنال اندیکاتوری اختیار (EMA, RSI, MACD, ATR) =====
-function optSignal(candles, under, type, price){
-  if (!candles || candles.length < 8) return null;
-  const closes = candles.map(c => c.c), n = closes.length, last = closes[n-1];
-  const ema = (a, per) => { const k = 2 / (per + 1), o = [a[0]]; for (let i = 1; i < a.length; i++) o.push(a[i] * k + o[i-1] * (1 - k)); return o; };
-  const e9 = ema(closes, 9)[n-1], e21 = ema(closes, 21)[n-1];
-  const fa = v => Math.round(v).toLocaleString('fa-IR'), fd = v => (+v).toFixed(1).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
-  const rows = [];
-  // EMA
-  let v = 'neutral', note = 'EMAهای ۹ و ۲۱ هم‌جهت نیستند؛ روند نامشخص است.';
-  if (last > e9 && e9 > e21) { v = 'buy'; note = 'قیمت بالای EMA9 و EMA9 بالای EMA21 است (روند صعودی).'; }
-  else if (last < e9 && e9 < e21) { v = 'sell'; note = 'قیمت زیر EMA9 و EMA9 زیر EMA21 است (روند نزولی).'; }
-  rows.push({ label: 'EMA ۹/۲۱', verdict: v, note });
-  // RSI
-  const rsi = calcRSI(closes);
-  v = rsi <= 35 ? 'buy' : rsi >= 70 ? 'sell' : 'neutral';
-  rows.push({ label: 'RSI', verdict: v, note: `RSI روی ${fd(rsi)} است${v==='buy'?' (اشباع فروش؛ احتمال برگشت صعودی)':v==='sell'?' (اشباع خرید؛ احتمال اصلاح)':' (محدوده متعادل)'}.` });
-  // MACD
-  const mc = calcMACD(closes);
-  if (mc) rows.push({ label: 'MACD', verdict: mc.hist > 0 ? 'buy' : mc.hist < 0 ? 'sell' : 'neutral',
-    note: (mc.hist > 0 ? 'MACD بالای خط سیگنال است' : 'MACD پایین خط سیگنال است') + (mc.prevHist != null && Math.sign(mc.prevHist) !== Math.sign(mc.hist) ? ' (تقاطع تازه)' : '') + (mc.short ? ' · نسخه کوتاه‌شده' : '') + '.' });
-  // ATR
-  const atr = calcATR(candles), atrPct = atr && price ? atr / price * 100 : null;
-  if (atr) rows.push({ label: 'ATR', verdict: 'neutral', note: `ATR ${fa(atr)} (${fd(atrPct)}٪ قیمت)${atrPct > 12 ? ' — نوسان بالا؛ حجم پوزیشن را کم کنید' : ''}؛ حد ضرر ۱٫۵×ATR زیر ورود.` });
-  // جهت دارایی پایه (برای اختیار فروش معکوس می‌شود)
-  if (under) {
-    const up = /buy/.test(under.cls), dn = /sell/.test(under.cls);
-    v = type === 'call' ? (up ? 'buy' : dn ? 'sell' : 'neutral') : (dn ? 'buy' : up ? 'sell' : 'neutral');
-    rows.push({ label: 'جهت دارایی پایه', verdict: v, note: `سیگنال ${under.name}: ${under.label}${type === 'put' ? ' (برای اختیار فروش معکوس لحاظ شد)' : ''}.` });
-  }
-  const buys = rows.filter(r => r.verdict === 'buy').length, sells = rows.filter(r => r.verdict === 'sell').length, net = buys - sells;
-  let label, cls;
-  if (net >= 3) { label = 'خرید قوی'; cls = 'strong-buy'; } else if (net >= 1) { label = 'خرید'; cls = 'buy'; }
-  else if (net <= -3) { label = 'فروش قوی'; cls = 'strong-sell'; } else if (net <= -1) { label = 'فروش'; cls = 'sell'; }
-  else { label = 'خنثی'; cls = 'neutral'; }
-  if (type === 'call' && net <= 0) { label = 'بدون سیگنال خرید'; cls = 'neutral'; }
-  const plan = optPlan(candles, price);
-  return { rows, label, cls, net, type, plan, atr, buys, sells };
-}
-function optFmtVal(rial){
-  const t = rial / 10; // ریال → تومان
-  const fd = v => (+v.toFixed(2)).toLocaleString('fa-IR');
-  if (t >= 1e12) return fd(t / 1e12) + ' بیلیون تومان';
-  if (t >= 1e9) return fd(t / 1e9) + ' میلیارد تومان';
-  if (t >= 1e6) return fd(t / 1e6) + ' میلیون تومان';
-  return Math.round(t).toLocaleString('fa-IR') + ' تومان';
-}
-// نقشه معامله: ورود + ۱ حد ضرر + ۳ حد سود (بر پایه ATR با سقف ریسک ۲۵٪ قیمت)
-function optPlan(candles, price){
-  if (!price) return null;
-  const atr = candles && candles.length >= 4 ? calcATR(candles) : null;
-  let risk = atr ? 1.5 * atr : price * 0.08;
-  risk = Math.min(Math.max(risk, price * 0.03), price * 0.25);
-  const stop = Math.max(price - risk, price * 0.3), r = price - stop;
-  return { entry: price, stop: Math.round(stop), tps: [1, 2, 3].map(k => Math.round(price + r * k)), atr };
-}
-
 async function analyzeOptionSymbol(sym) {
   OPT_CACHE[sym] = { status: 'loading' };
   renderOptionsList();
@@ -8248,26 +7292,12 @@ async function analyzeOptionSymbol(sym) {
       rpFetchSymbol(sym)
     ]);
     const { votes, finalLabel, finalClass } = computeSignalVotes(d, fmtRial);
+    const riskPct = Math.min(95, Math.max(8, Math.round((d.volatility || 5) * 4)));
     const moneyFlow = extractRealMoneyFlow(rawSymbolData);
-    const fullName = (rawSymbolData && rawSymbolData.l30) || d.bourseName || d.fullName || '';
-    const contract = parseOptionContract(fullName, sym);
-    let under = null, calc = null;
-    if (contract) {
-      try {
-        const ud = await buildAnalysisData(contract.underlying, '1d', true, false);
-        const uv = computeSignalVotes(ud, fmtRial);
-        under = { name: contract.underlying, price: ud.price, candles: ud.candles, label: uv.finalLabel, cls: uv.finalClass };
-      } catch (e) { under = null; }
-      calc = optCalc(contract, d.price, under ? under.price : null, under ? under.candles : null);
-    }
-    const riskPct = contract ? optRisk(contract, d.price, calc, d.volatility) : Math.min(95, Math.max(8, Math.round((d.volatility || 5) * 4)));
     const levels = computeEntryExitLevels(d);
-    // سطوح خروج بعد از سررسید بی‌معنی‌اند
-    if (contract) { if (contract.daysLeft < 7) levels.exit1w = null; if (contract.daysLeft < 30) levels.exit1m = null; }
     OPT_CACHE[sym] = {
-      status: 'ok', full: fullName || d.bourseName || sym, price: d.price,
-      sym, d, optSig: optSignal(d.candles, under, (contract && contract.type) || (/^ط/.test(sym) ? 'put' : 'call'), d.price),
-      finalLabel, finalClass, votes, riskPct, moneyFlow, levels, contract, under, calc,
+      status: 'ok', full: d.bourseName || sym, price: d.price,
+      finalLabel, finalClass, votes, riskPct, moneyFlow, levels,
       candles: d.candles, volume: d.volume || 0, hasVolume: !!d.hasVolume,
       chartOpen: (OPT_CACHE[sym] && OPT_CACHE[sym].chartOpen) || false
     };
@@ -8275,52 +7305,6 @@ async function analyzeOptionSymbol(sym) {
     OPT_CACHE[sym] = { status: 'error', error: (err && err.message) ? err.message : 'دریافت اطلاعات این نماد ناموفق بود — بررسی کنید نماد صحیح است.' };
   }
   renderOptionsList();
-}
-
-function optLevelsTable(L, x){
-  const late = '<span style="color:var(--dim);font-weight:400;font-size:10px">پس از سررسید</span>';
-  const f = v => v==null ? late : v.toLocaleString('fa-IR');
-  return `<div class="rp-tbl-wrap"><table class="rp-tbl"><thead><tr><th>نقطه ورود</th><th>خروج ۱ روزه</th><th>خروج ۱ هفته</th><th>خروج ۱ ماهه</th></tr></thead><tbody><tr>
-    <td style="color:var(--green);font-weight:700">${f(L.entry)}</td><td style="color:var(--blue);font-weight:700">${f(L.exit1d)}</td>
-    <td style="color:var(--purple);font-weight:700">${f(L.exit1w)}</td><td style="color:var(--red);font-weight:700">${f(L.exit1m)}</td></tr></tbody></table></div>`;
-}
-function optDetailHtml(x){
-  const c=x.contract; if(!c) return '<div class="rp-full">⚠ مشخصات قرارداد از نام کامل نماد استخراج نشد؛ فقط تحلیل قیمتی نشان داده می‌شود.</div>';
-  const k=x.calc||{}, fa=n=>(n==null||isNaN(n))?'—':Math.round(n).toLocaleString('fa-IR'), fd=(n,dg)=>(n==null||isNaN(n))?'—':(+n).toFixed(dg).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
-  const call=c.type==='call', u=x.under;
-  const mCls={ITM:'bg-g',ATM:'bg-a',OTM:'bg-r'}[k.moneyness]||'bg-b';
-  const expBadge = c.daysLeft<0 ? '<span class="rp-badge bg-r">منقضی‌شده</span>' : c.daysLeft<=3 ? `<span class="rp-badge bg-r opt-pulse">⏰ ${c.daysLeft.toLocaleString('fa-IR')} روز تا سررسید</span>` : c.daysLeft<=7 ? `<span class="rp-badge bg-a">⏳ ${c.daysLeft.toLocaleString('fa-IR')} روز تا سررسید</span>` : `<span class="rp-badge bg-b">${c.daysLeft.toLocaleString('fa-IR')} روز تا سررسید</span>`;
-  let align='';
-  if(u){ const up=/buy/.test(u.cls), dn=/sell/.test(u.cls);
-    align = (up&&call)||(dn&&!call) ? '<span class="rp-badge bg-g">هم‌جهت با دارایی پایه ✅</span>' : (up&&!call)||(dn&&call) ? '<span class="rp-badge bg-r">خلاف جهت دارایی پایه ⚠</span>' : '<span class="rp-badge bg-b">پایه: خنثی</span>'; }
-  return `<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
-      <span class="rp-badge ${call?'bg-g':'bg-r'}">${call?'اختیار خرید':'اختیار فروش'}</span>${expBadge}
-      ${k.moneyness?`<span class="rp-badge ${mCls}">${k.moneyness}</span>`:''}${align}
-      ${u?`<span class="rp-badge bg-b">پایه ${escapeHtml(u.name)}: ${u.label}</span>`:'<span class="rp-badge bg-b">دارایی پایه در دسترس نیست</span>'}</div>
-    <div class="rp-tbl-wrap"><table class="rp-tbl"><thead><tr><th>قیمت اعمال</th><th>سررسید</th><th>قیمت پایه</th><th>سر‌به‌سر</th></tr></thead><tbody><tr>
-      <td>${fa(c.strike)}</td><td>${c.expiryFa}</td><td>${u?fa(u.price):'—'}</td>
-      <td>${fa(k.breakEven)}${k.beMovePct!=null?`<br><span style="font-size:10px;color:var(--dim)">${fd(k.beMovePct,1)}٪ از قیمت پایه</span>`:''}</td></tr></tbody></table></div>
-    <div class="rp-tbl-wrap"><table class="rp-tbl"><thead><tr><th>ارزش ذاتی</th><th>ارزش زمانی</th><th>اهرم</th><th>نوسان ضمنی</th></tr></thead><tbody><tr>
-      <td>${fa(k.intrinsic)}</td><td>${fa(k.timeValue)}</td><td>${k.leverage?fd(k.leverage,1)+'×':'—'}</td><td>${k.iv?fd(k.iv*100,0)+'٪':'—'}</td></tr></tbody></table></div>
-    ${k.delta!=null?`<div class="rp-tbl-wrap"><table class="rp-tbl"><thead><tr><th>دلتا</th><th>تتا (روزانه)</th><th>وگا (۱٪)</th><th>قیمت تئوریک</th></tr></thead><tbody><tr>
-      <td>${fd(k.delta,2)}</td><td style="color:var(--red)">${fa(k.theta)}</td><td>${fa(k.vega)}</td><td>${fa(k.fair)}</td></tr></tbody></table></div>`:''}
-    `;
-}
-function renderOptChain(){
-  const el=document.getElementById('optChain'); if(!el) return;
-  const groups={};
-  Object.keys(OPT_CACHE).forEach(sym=>{ const x=OPT_CACHE[sym]; if(x.status!=='ok'||!x.contract) return;
-    const key=x.contract.underlying+'|'+x.contract.expiryFa; (groups[key]=groups[key]||{c:x.contract,u:x.under,rows:{}});
-    (groups[key].rows[x.contract.strike]=groups[key].rows[x.contract.strike]||{})[x.contract.type]={sym,price:x.price,vol:x.volume}; });
-  const keys=Object.keys(groups); if(!keys.length){ el.innerHTML=''; return; }
-  const fa=n=>Math.round(n).toLocaleString('fa-IR');
-  el.innerHTML = '<div class="rp-panel-title" style="margin:14px 0 8px;">⛓️ زنجیره اختیار (از نمادهای افزوده‌شده)</div>' + keys.map(k=>{
-    const g=groups[k], S=g.u?g.u.price:null;
-    const body=Object.keys(g.rows).map(Number).sort((a,b)=>a-b).map(K=>{ const r=g.rows[K];
-      const cb = S&&S>K?'background:rgba(120,184,154,.10)':'', pb = S&&S<K?'background:rgba(185,120,120,.10)':'';
-      return `<tr><td style="${cb}">${r.call?fa(r.call.price)+'<br><span style="font-size:9px;color:var(--dim)">'+escapeHtml(r.call.sym)+'</span>':'—'}</td><td style="font-weight:700">${fa(K)}</td><td style="${pb}">${r.put?fa(r.put.price)+'<br><span style="font-size:9px;color:var(--dim)">'+escapeHtml(r.put.sym)+'</span>':'—'}</td></tr>`; }).join('');
-    return `<div class="rp-full" style="margin:8px 0 4px;">${escapeHtml(g.c.underlying)} · سررسید ${g.c.expiryFa} · ${g.c.daysLeft.toLocaleString('fa-IR')} روز مانده${S?' · قیمت پایه '+fa(S):''}</div>
-      <div class="rp-tbl-wrap"><table class="rp-tbl"><thead><tr><th>اختیار خرید</th><th>قیمت اعمال</th><th>اختیار فروش</th></tr></thead><tbody>${body}</tbody></table></div>`; }).join('');
 }
 
 async function refreshAllOptions() {
@@ -8338,262 +7322,18 @@ async function refreshAllOptions() {
 
 document.getElementById('optAddBtn').addEventListener('click', () => {
   const input = document.getElementById('optSymbolInput');
-  const syms = input.value.split(/[\s,،;]+/).map(t => t.trim()).filter(Boolean);
-  if (!syms.length) return;
+  const sym = input.value.trim();
+  if (!sym) return;
   const list = getOptionSymbols();
-  const fresh = syms.filter((t, i) => !list.includes(t) && syms.indexOf(t) === i);
-  input.value = '';
-  if (!fresh.length) return;
-  fresh.forEach(t => list.push(t));
+  if (list.includes(sym)) { input.value = ''; return; }
+  list.push(sym);
   saveOptionSymbols(list);
+  input.value = '';
   renderOptionsList();
-  (async () => { for (const t of fresh) await analyzeOptionSymbol(t); })();
+  analyzeOptionSymbol(sym);
 });
 document.getElementById('optSymbolInput').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') document.getElementById('optAddBtn').click();
-});
-
-// ===== ۱۰ پرحجم‌ترین اختیار خرید و فروش (از Option.php) =====
-const OPT_TOP = { ts: 0, calls: [], puts: [], all: [], q: '', loading: false, open: {} };
-function optNum(o, ...keys){ for (const k of keys){ const v = Number(o[k]); if (!isNaN(v) && v > 0) return v; } return 0; }
-async function loadOptTop(force){
-  const st = document.getElementById('optStatus');
-  if (OPT_TOP.loading) return;
-  if (!force && Date.now() - OPT_TOP.ts < 60000 && OPT_TOP.calls.length) { renderOptTop(); return; }
-  OPT_TOP.loading = true;
-  st.style.display = 'block'; st.textContent = 'در حال دریافت بازار اختیار معامله...';
-  renderOptTop();
-  try {
-    const res = await brsFetch(`https://Api.BrsApi.ir/Tsetmc/Option.php?key=${encodeURIComponent(getBrsApiKey())}`);
-    let d = await res.json();
-    if (!Array.isArray(d)) d = (d && (d.options || d.data || d.result || d.symbols)) || [];
-    const rows = d.filter(o => o && typeof o === 'object').map(o => {
-      let t = String(o.type || '').toLowerCase();
-      if (t !== 'call' && t !== 'put') t = /^ض/.test(o.l18||'') ? 'call' : /^ط/.test(o.l18||'') ? 'put' : '';
-      return Object.assign({}, o, { _t: t, _vol: optNum(o,'tvol','volume','vol'), _val: optNum(o,'tval') });
-    }).filter(o => o.l18 && o._t);
-    if (!rows.length) throw new Error('داده‌ای دریافت نشد');
-    const byVol = (a, b) => (b._vol - a._vol) || (b._val - a._val);
-    OPT_TOP.all = rows.slice().sort(byVol);
-    OPT_TOP.calls = rows.filter(o => o._t === 'call').sort(byVol).slice(0, 10);
-    OPT_TOP.puts  = rows.filter(o => o._t === 'put').sort(byVol).slice(0, 10);
-    OPT_TOP.ts = Date.now();
-    st.style.display = 'none';
-  } catch (e) {
-    st.textContent = '⚠ دریافت بازار اختیار ناموفق بود: ' + (e && e.message ? e.message : 'خطای شبکه');
-  }
-  OPT_TOP.loading = false;
-  renderOptTop();
-}
-function optRowOf(sym){ return OPT_TOP.calls.concat(OPT_TOP.puts, OPT_TOP.all).find(r => r.l18 === sym) || null; }
-function optValOf(o){ if (!o) return 0; return o._val || (o._vol && optNum(o,'pl','pc') ? o._vol * optNum(o,'pl','pc') * 1000 : 0); } // قرارداد ۱۰۰۰ سهمی
-function optSigBadge(sg){ return `<span class="rp-badge ${/buy/.test(sg.cls)?'bg-g':/sell/.test(sg.cls)?'bg-r':'bg-b'}">${sg.label}</span>`; }
-function optPlanTable(plan){
-  if (!plan) return '';
-  const f = v => Math.round(v).toLocaleString('fa-IR');
-  const pct = v => { const p = (v / plan.entry - 1) * 100; return (p >= 0 ? '+' : '−') + Math.abs(p).toFixed(0).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]) + '٪'; };
-  const sub = v => `<br><span style="font-size:10px;color:var(--dim)">${pct(v)}</span>`;
-  return `<div class="rp-tbl-wrap"><table class="rp-tbl"><thead><tr><th>ورود</th><th>حد ضرر</th><th>حد سود ۱</th><th>حد سود ۲</th><th>حد سود ۳</th></tr></thead><tbody><tr>
-    <td style="color:var(--blue);font-weight:800">${f(plan.entry)}</td>
-    <td style="color:var(--red);font-weight:800">${f(plan.stop)}${sub(plan.stop)}</td>
-    ${plan.tps.map(v => `<td style="color:var(--green);font-weight:800">${f(v)}${sub(v)}</td>`).join('')}</tr></tbody></table></div>`;
-}
-function optDetailCard(x, o){
-  const sg = x.optSig;
-  const call = sg ? sg.type === 'call' : (x.contract ? x.contract.type === 'call' : !/^ط/.test(x.sym || ''));
-  const val = optValOf(o);
-  const plan = (sg && sg.plan) || optPlan(x.candles, x.price);
-  const stats = o ? `<div class="rp-tbl-wrap"><table class="rp-tbl"><thead><tr><th>ارزش معامله</th><th>حجم</th><th>موقعیت باز</th></tr></thead><tbody><tr>
-    <td style="font-weight:800;color:var(--amber)">${val ? optFmtVal(val) : '—'}</td><td>${o._vol ? fmtCompact(o._vol) : '—'}</td><td>${o.interest_open ? fmtCompact(Number(o.interest_open)) : '—'}</td></tr></tbody></table></div>` : '';
-  const vv = r => (call && r.verdict === 'sell') ? 'neutral' : r.verdict;
-  const vt = v => v === 'buy' ? 'خرید' : v === 'sell' ? 'فروش' : 'خنثی';
-  const legend = call
-    ? '«خرید» یعنی شرایط ورود به این اختیار خرید مناسب است؛ اگر شرایط مناسب نباشد سیگنال خریدی صادر نمی‌شود.'
-    : '«خرید» یعنی شرایط برای خرید خودِ این قرارداد مناسب است و «فروش» یعنی خروج یا عدم ورود.';
-  const sigHtml = sg ? `<div class="rp-full" style="margin:10px 0 4px;font-weight:800;">🎯 ${call ? 'سیگنال خرید اختیار خرید (Call)' : 'سیگنال اختیار فروش (Put)'} با EMA · RSI · MACD · ATR: ${optSigBadge(sg)}</div>
-    ${sg.rows.map(r => `<div class="signal-row"><div class="signal-row-label">${escapeHtml(r.label)}<br><span style="font-size:10.5px;color:var(--dim)">${escapeHtml(r.note)}</span></div><div class="signal-row-badge ${vv(r)}">${vt(vv(r))}</div></div>`).join('')}
-    <div style="font-size:10px;color:var(--dim);margin:4px 0;">${legend} سطوح ورود/حد ضرر/حد سود روی چارت بر پایه ATR است.</div>` : '';
-  const chartHtml = plan ? `<div class="rp-full" style="margin:8px 0 4px;">📈 چارت کندل‌استیک ${escapeHtml(x.sym || '')} — ۲۰ کندل اخیر با ورود، ۱ حد ضرر و ۳ حد سود</div>
-    <div style="overflow-x:auto;"><svg class="chart-svg" id="optCS_${escapeHtml(x.sym)}" viewBox="0 0 720 340" style="min-width:520px"></svg></div>${optPlanTable(plan)}` : '';
-  const fl = x.finalLabel, fc = x.finalClass;
-  const noBuy = call && /sell/.test(fc);
-  const cls = noBuy ? 'bg-b' : (fc === 'strong-buy' || fc === 'buy') ? 'bg-g' : (fc === 'strong-sell' || fc === 'sell') ? 'bg-r' : 'bg-b';
-  return `<div style="display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;">
-    ${sg ? optSigBadge(sg) : `<span class="rp-badge ${cls}">${noBuy ? 'بدون سیگنال خرید' : fl}</span>`}
-    <span class="rp-badge ${x.moneyFlow.available?x.moneyFlow.cls:'bg-b'}">${x.moneyFlow.available?x.moneyFlow.label:'ورود/خروج پول: در دسترس نیست'}</span>
-    <span class="rp-badge ${x.riskPct>=60?'bg-r':x.riskPct>=35?'bg-a':'bg-g'}">ریسک: ٪${x.riskPct}</span></div>
-    ${stats}${sigHtml}${chartHtml}${optLevelsTable(x.levels, x)}${optDetailHtml(x)}`;
-}
-
-// چارت کندل‌استیک اختصاصی اختیار: ۲۰ کندل، مقیاس عمودی بر اساس خودِ کندل‌ها (تا کندل‌ها روی یک خط جمع نشوند)
-function drawOptionChart(svg, candlesIn, plan) {
-  const cs = (candlesIn || []).filter(c => c && c.o > 0 && c.h > 0 && c.l > 0 && c.c > 0 && isFinite(c.h) && isFinite(c.l)).slice(-20);
-  if (cs.length < 2) { svg.innerHTML = '<text x="360" y="170" text-anchor="middle" fill="#8B93A7" font-size="12" font-family="Vazirmatn">داده کندل کافی نیست</text>'; return; }
-  const W = 720, H = 340, padR = 84, R = W - padR, padTop = 16, padBottom = 24, padX = 12;
-  const n = cs.length, fmt = v => Math.round(v).toLocaleString('fa-IR');
-  let cmin = Math.min(...cs.map(c => c.l)), cmax = Math.max(...cs.map(c => c.h));
-  const minSpan = cmax * 0.04;
-  if (cmax - cmin < minSpan) { const m = (cmax + cmin) / 2; cmin = m - minSpan / 2; cmax = m + minSpan / 2; }
-  const cr = cmax - cmin;
-  let lo = cmin - cr * 0.08, hi = cmax + cr * 0.08;
-  const levels = [];
-  if (plan) {
-    levels.push({ v: plan.tps[2], c: '#3DDC97', t: 'TP3 · حد سود ۳', w: 1.3, d: '6,4' });
-    levels.push({ v: plan.tps[1], c: '#3DDC97', t: 'TP2 · حد سود ۲', w: 1.3, d: '6,4' });
-    levels.push({ v: plan.tps[0], c: '#3DDC97', t: 'TP1 · حد سود ۱', w: 1.3, d: '6,4' });
-    levels.push({ v: plan.entry, c: '#5B9CF6', t: 'ورود', w: 1.6, d: '4,3' });
-    levels.push({ v: plan.stop, c: '#FF5C72', t: 'SL · حد ضرر', w: 1.8, d: '' });
-    levels.forEach(l => {
-      if (l.v > hi && l.v <= cmax + cr * 1.6) hi = l.v + cr * 0.06;
-      if (l.v < lo && l.v >= cmin - cr * 1.0) lo = l.v - cr * 0.06;
-    });
-  }
-  const range = (hi - lo) || 1;
-  const slotW = (R - padX) / n, bodyW = Math.max(3, slotW * 0.6);
-  const yFor = v => padTop + (1 - (v - lo) / range) * (H - padTop - padBottom);
-  const clampY = v => Math.min(H - padBottom, Math.max(padTop, yFor(v)));
-  const xFor = i => padX + i * slotW + slotW / 2;
-
-  let g = `<defs><linearGradient id="ocbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101a15"/><stop offset="1" stop-color="#070908"/></linearGradient></defs><rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="url(#ocbg)"/><rect x="${R}" y="0" width="${padR}" height="${H}" fill="#000" opacity="0.35"/>`;
-  for (let k = 0; k <= 4; k++) { const y = padTop + (H - padTop - padBottom) * k / 4; g += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${R}" y2="${y.toFixed(1)}" stroke="#232A3B" stroke-width="0.6" opacity="0.55"/>`; }
-  const tags = [];
-  if (plan) {
-    const yE = clampY(plan.entry), yS = clampY(plan.stop), yT = clampY(plan.tps[2]);
-    g += `<rect x="${padX}" y="${Math.min(yE, yS).toFixed(1)}" width="${R - padX}" height="${Math.abs(yE - yS).toFixed(1)}" fill="#FF5C72" opacity="0.10"/>`;
-    g += `<rect x="${padX}" y="${Math.min(yE, yT).toFixed(1)}" width="${R - padX}" height="${Math.abs(yE - yT).toFixed(1)}" fill="#3DDC97" opacity="0.07"/>`;
-    levels.forEach(l => {
-      const y = clampY(l.v), clipped = yFor(l.v) < padTop - 0.5 || yFor(l.v) > H - padBottom + 0.5;
-      g += `<line x1="${padX}" y1="${y.toFixed(1)}" x2="${R}" y2="${y.toFixed(1)}" stroke="${l.c}" stroke-width="${l.w}" ${l.d ? `stroke-dasharray="${l.d}"` : ''} opacity="0.95"/>`;
-      tags.push({ y, c: l.c, t: fmt(l.v), label: l.t + (clipped ? (l.v > hi ? ' ▲' : ' ▼') : '') });
-    });
-  }
-  // کندل‌ها
-  cs.forEach((c, i) => {
-    const x = xFor(i), up = c.c >= c.o, color = up ? '#3DDC97' : '#FF5C72';
-    const yO = yFor(c.o), yC = yFor(c.c);
-    g += `<line x1="${x.toFixed(1)}" y1="${yFor(c.h).toFixed(1)}" x2="${x.toFixed(1)}" y2="${yFor(c.l).toFixed(1)}" stroke="${color}" stroke-width="1.4" stroke-linecap="round"/>`;
-    g += `<rect x="${(x - bodyW / 2).toFixed(1)}" y="${Math.min(yO, yC).toFixed(1)}" width="${bodyW.toFixed(1)}" height="${Math.max(1.5, Math.abs(yC - yO)).toFixed(1)}" fill="${color}" rx="1"/>`;
-    if (i % 5 === 0 || i === n - 1) {
-      let lbl = ''; try { lbl = new Date(c.t).toLocaleDateString('fa-IR', { month: 'numeric', day: 'numeric' }); } catch (e) {}
-      if (lbl) g += `<text x="${x.toFixed(1)}" y="${H - 8}" text-anchor="middle" fill="#5A6379" font-size="8.5" font-family="Vazirmatn">${lbl}</text>`;
-    }
-  });
-  // برچسب‌ها (بدون روی‌هم‌افتادگی)
-  tags.sort((a, b) => a.y - b.y);
-  for (let i = 1; i < tags.length; i++) if (tags[i].y - tags[i - 1].y < 15) tags[i].y = tags[i - 1].y + 15;
-  tags.forEach(t => {
-    const w = 11 + t.label.length * 5.2;
-    g += `<rect x="${padX + 3}" y="${(t.y - 8).toFixed(1)}" width="${w.toFixed(0)}" height="15" rx="4" fill="#0B1020" stroke="${t.c}" stroke-width="0.7" opacity="0.92"/>`;
-    g += `<text x="${padX + 8}" y="${(t.y + 3).toFixed(1)}" fill="${t.c}" font-size="9.5" font-weight="800" font-family="Vazirmatn">${t.label}</text>`;
-    g += `<polygon points="${R},${t.y.toFixed(1)} ${R + 5},${(t.y - 7).toFixed(1)} ${R + 5},${(t.y + 7).toFixed(1)}" fill="${t.c}"/><rect x="${R + 5}" y="${(t.y - 7).toFixed(1)}" width="${padR - 7}" height="14" rx="3" fill="${t.c}"/>`;
-    g += `<text x="${(R + 5 + (padR - 7) / 2).toFixed(1)}" y="${(t.y + 3.5).toFixed(1)}" text-anchor="middle" fill="#04120b" font-size="9.5" font-weight="800" font-family="Vazirmatn">${t.t}</text>`;
-  });
-  svg.__geom = { candles: cs, padX, slotW, W, n, fmt };
-  g += '<g id="chartCross" pointer-events="none"></g>';
-  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-  svg.innerHTML = g;
-}
-function drawOptCandle(sym){
-  const x = OPT_CACHE[sym], svg = document.getElementById('optCS_' + sym);
-  if (!x || x.status !== 'ok' || !svg) return;
-  drawOptionChart(svg, x.candles, (x.optSig && x.optSig.plan) || optPlan(x.candles, x.price));
-}
-function optTopRow(o){
-  const fa = n => Math.round(n).toLocaleString('fa-IR');
-  const S = Number(o.base_pl) || 0, K = Number(o.price_strike) || 0, call = o._t === 'call';
-  let mon = '', mc = 'bg-b';
-  if (S && K) { const itm = call ? S > K : S < K; mon = Math.abs(S-K)/K < 0.02 ? 'ATM' : itm ? 'ITM' : 'OTM'; mc = {ITM:'bg-g',ATM:'bg-a',OTM:'bg-r'}[mon]; }
-  const days = Number(o.day_remain);
-  const price = optNum(o,'pl','pc','pf');
-  const chg = Number(o.plp ?? o.pcp);
-  const sym = escapeHtml(o.l18);
-  return `<div class="screener-row" style="flex-direction:column;align-items:stretch;gap:8px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-      <div><div class="rp-sym">${sym}</div><div class="rp-full">پایه ${escapeHtml(o.base_l18||'—')} · اعمال ${K?fa(K):'—'}</div></div>
-      <div style="text-align:left;"><div style="font-weight:800;font-variant-numeric:tabular-nums">${price?fa(price):'—'}</div>
-        ${isNaN(chg)||o.plp==null&&o.pcp==null?'':`<div style="font-size:10.5px;color:var(${chg>=0?'--green':'--red'})">${chg>=0?'▲':'▼'} ${Math.abs(chg).toFixed(1).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d])}٪</div>`}</div>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
-      <span class="rp-badge bg-b">🔊 ${o._vol?fmtCompact(o._vol):'—'}</span>
-      ${optValOf(o)?`<span class="rp-badge bg-a">💰 ${optFmtVal(optValOf(o))}</span>`:''}
-      ${OPT_CACHE[o.l18]&&OPT_CACHE[o.l18].optSig?optSigBadge(OPT_CACHE[o.l18].optSig):''}
-      ${mon?`<span class="rp-badge ${mc}">${mon}</span>`:''}
-      ${!isNaN(days)&&o.day_remain!=null?`<span class="rp-badge ${days<=3?'bg-r opt-pulse':days<=7?'bg-a':'bg-b'}">${days.toLocaleString('fa-IR')} روز تا سررسید</span>`:''}
-      ${o.interest_open?`<span class="rp-badge bg-b">موقعیت باز ${fmtCompact(Number(o.interest_open))}</span>`:''}
-      <button class="screener-refresh-btn opt-top-btn" data-osym="${sym}" style="margin-inline-start:auto;">${OPT_TOP.open[o.l18]?'▲ بستن':'📊 تحلیل'}</button>
-    </div>
-    <div id="optTD_${sym}" style="display:${OPT_TOP.open[o.l18]?'block':'none'};">${OPT_TOP.open[o.l18]==='ok'&&OPT_CACHE[o.l18]&&OPT_CACHE[o.l18].status==='ok'?optDetailCard(OPT_CACHE[o.l18], o):(OPT_TOP.open[o.l18]==='loading'?'<div class="screener-status">در حال تحلیل...</div>':'')}</div>
-  </div>`;
-}
-function optTally(list, buyOnly){
-  const g = list.map(o => OPT_CACHE[o.l18] && OPT_CACHE[o.l18].optSig).filter(Boolean); if (!g.length) return '';
-  const b = g.filter(x => /buy/.test(x.cls)).length, r = g.filter(x => /sell/.test(x.cls)).length;
-  return buyOnly ? ` — ${b.toLocaleString('fa-IR')} سیگنال خرید` : ` — ${b.toLocaleString('fa-IR')} خرید · ${r.toLocaleString('fa-IR')} فروش`;
-}
-function optNorm(s){ return optToEn(String(s == null ? '' : s)).replace(/ي/g, 'ی').replace(/ك/g, 'ک').replace(/[\s\u200c]+/g, '').toLowerCase(); }
-function optVisible(){
-  const q = optNorm(OPT_TOP.q);
-  if (!q) return { calls: OPT_TOP.calls, puts: OPT_TOP.puts, searching: false };
-  const hit = o => [o.l18, o.base_l18, o.l30, o.price_strike].some(v => v != null && optNorm(v).includes(q));
-  const found = OPT_TOP.all.filter(hit);
-  return { calls: found.filter(o => o._t === 'call').slice(0, 30), puts: found.filter(o => o._t === 'put').slice(0, 30), searching: true, total: found.length };
-}
-// بهترین سیگنال خرید بین اختیارهای خرید پرحجم (فقط خرید؛ هیچ سیگنال فروشی نمایش داده نمی‌شود)
-function optBestCallHtml(){
-  const f = v => Math.round(v).toLocaleString('fa-IR'), fd = v => (+v).toLocaleString('fa-IR');
-  const box = inner => `<div style="background:linear-gradient(135deg,rgba(61,220,151,.12),rgba(61,220,151,.03));border:1px solid rgba(61,220,151,.35);border-radius:12px;padding:12px;margin:10px 0;">${inner}</div>`;
-  const ready = OPT_TOP.calls.map(o => ({ o, x: OPT_CACHE[o.l18] })).filter(r => r.x && r.x.status === 'ok' && r.x.optSig);
-  const pending = OPT_TOP.calls.length - ready.length;
-  const findBtn = `<button class="screener-refresh-btn" id="optBestBtn">${ready.length ? '🔄 تحلیل بقیه' : '🏆 پیدا کردن بهترین سیگنال خرید'}</button>`;
-  if (!ready.length) return box(`<div class="rp-full" style="font-weight:800;margin-bottom:8px;">🏆 بهترین سیگنال اختیار خرید</div><div style="font-size:11.5px;color:var(--muted);margin-bottom:8px;">۱۰ اختیار خرید پرحجم تحلیل می‌شوند و بهترین سیگنال خرید معرفی می‌شود.</div>${findBtn}`);
-  const buys = ready.filter(r => /buy/.test(r.x.optSig.cls))
-    .sort((a, b) => (b.x.optSig.net - a.x.optSig.net) || (a.x.riskPct - b.x.riskPct) || ((b.x.volume || 0) - (a.x.volume || 0)));
-  const tail = pending > 0 ? `<div style="margin-top:8px;">${findBtn}</div>` : '';
-  if (!buys.length) return box(`<div class="rp-full" style="font-weight:800;">🏆 بهترین سیگنال اختیار خرید</div><div style="font-size:11.5px;color:var(--muted);margin-top:6px;">در ${fd(ready.length)} اختیار خرید تحلیل‌شده فعلاً سیگنال خریدی وجود ندارد.</div>${tail}`);
-  const { o, x } = buys[0], pl = x.optSig.plan;
-  return box(`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
-      <div><div class="rp-full" style="font-weight:800;">🏆 بهترین سیگنال خرید</div><div class="rp-sym">${escapeHtml(o.l18)}</div></div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;">${optSigBadge(x.optSig)}<span class="rp-badge ${x.riskPct>=60?'bg-r':x.riskPct>=35?'bg-a':'bg-g'}">ریسک: ٪${fd(x.riskPct)}</span></div></div>
-    ${pl ? `<div style="font-size:11.5px;line-height:2;margin-top:6px;">ورود <b style="color:var(--blue)">${f(pl.entry)}</b> · حد ضرر <b style="color:var(--red)">${f(pl.stop)}</b><br>حد سود: <b style="color:var(--green)">${f(pl.tps[0])}</b> · <b style="color:var(--green)">${f(pl.tps[1])}</b> · <b style="color:var(--green)">${f(pl.tps[2])}</b></div>` : ''}
-    <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;"><button class="screener-refresh-btn opt-top-btn" data-osym="${escapeHtml(o.l18)}">${OPT_TOP.open[o.l18] ? '▲ بستن' : '📊 مشاهده تحلیل و چارت'}</button>${pending > 0 ? findBtn : ''}</div>`);
-}
-function renderOptTop(){
-  const el = document.getElementById('optTop'); if (!el) return;
-  if (OPT_TOP.loading && !OPT_TOP.calls.length) { el.innerHTML = '<div class="screener-status">در حال دریافت...</div>'; return; }
-  if (!OPT_TOP.calls.length && !OPT_TOP.puts.length) { el.innerHTML = '<button class="screener-refresh-btn" id="optTopRefresh">🔄 تلاش دوباره</button>'; return; }
-  const V = optVisible();
-  const sec = (title, list, color) => `<div class="rp-panel-title" style="margin:14px 0 8px;display:flex;align-items:center;gap:8px;"><span style="color:${color}">●</span>${title}</div>${list.length ? list.map(optTopRow).join('') : '<div class="screener-status">موردی پیدا نشد</div>'}`;
-  const count = V.calls.length + V.puts.length;
-  const head = `<div style="display:flex;justify-content:flex-end;gap:6px;margin-bottom:4px;"><button class="screener-refresh-btn" id="optTopAll">⚡ تحلیل همه ${count.toLocaleString('fa-IR')} نماد</button><button class="screener-refresh-btn" id="optTopRefresh">🔄 بروزرسانی</button></div>`;
-  const callTitle = V.searching ? `اختیار خرید — ${V.calls.length.toLocaleString('fa-IR')} نتیجه` : '۱۰ اختیار خرید پرحجم' + optTally(V.calls, true);
-  const putTitle = V.searching ? `اختیار فروش — ${V.puts.length.toLocaleString('fa-IR')} نتیجه` : '۱۰ اختیار فروش پرحجم' + optTally(V.puts, false);
-  el.innerHTML = head + (V.searching ? '' : optBestCallHtml()) + sec(callTitle, V.calls, 'var(--green)') + sec(putTitle, V.puts, 'var(--red)');
-  Object.keys(OPT_TOP.open).forEach(k => { if (OPT_TOP.open[k] === 'ok') drawOptCandle(k); });
-}
-async function optAnalyzeBatch(syms, btn){
-  const all = syms.filter(sym => !(OPT_CACHE[sym] && OPT_CACHE[sym].status === 'ok'));
-  if (btn) { btn.disabled = true; btn.textContent = 'در حال تحلیل...'; }
-  let idx = 0;
-  const worker = async () => { while (idx < all.length) { const sym = all[idx++]; await analyzeOptionSymbol(sym); renderOptTop(); } };
-  await Promise.all([worker(), worker(), worker()]);
-  renderOptTop();
-}
-document.getElementById('optSearchInput').addEventListener('input', (e) => { OPT_TOP.q = e.target.value; renderOptTop(); });
-document.getElementById('optTop').addEventListener('click', async (e) => {
-  if (e.target.closest('#optTopRefresh')) { loadOptTop(true); return; }
-  if (e.target.closest('#optTopAll')) { const V = optVisible(); await optAnalyzeBatch(V.calls.concat(V.puts).map(r => r.l18), e.target.closest('#optTopAll')); return; }
-  if (e.target.closest('#optBestBtn')) { await optAnalyzeBatch(OPT_TOP.calls.map(r => r.l18), e.target.closest('#optBestBtn')); return; }
-  const btn = e.target.closest('.opt-top-btn'); if (!btn) return;
-  const sym = btn.dataset.osym, box = document.getElementById('optTD_' + sym);
-  if (!box) return;
-  if (OPT_TOP.open[sym]) { OPT_TOP.open[sym] = null; box.style.display = 'none'; btn.textContent = '📊 تحلیل'; renderOptTop(); return; }
-  OPT_TOP.open[sym] = 'loading'; box.style.display = 'block'; btn.textContent = '▲ بستن';
-  box.innerHTML = '<div class="screener-status">در حال تحلیل...</div>';
-  await analyzeOptionSymbol(sym);
-  if (!OPT_TOP.open[sym]) return;
-  const x = OPT_CACHE[sym];
-  if (x && x.status === 'ok') { OPT_TOP.open[sym] = 'ok'; renderOptTop(); const b2 = document.getElementById('optTD_' + sym); if (b2) b2.scrollIntoView({ block: 'nearest' }); }
-  else { OPT_TOP.open[sym] = 'err'; box.innerHTML = `<div class="rp-full" style="color:var(--red)">⚠ ${escapeHtml((x && x.error) || 'تحلیل ناموفق بود')}</div>`; }
 });
 
 // --- تب «حق تقدم»: مشابه اختیار معامله + پنل معرفی بهترین‌ها ---
@@ -8833,6 +7573,216 @@ if (savedRiskProfile) {
 }
 </script>
 <!-- ===================== سهام یکم: ورود / ثبت‌نام / اشتراک ===================== -->
+<style>
+  #snGate{position:fixed;inset:0;background:#202521;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;font-family:'Vazirmatn',sans-serif;direction:rtl}
+  #snGate.hidden{display:none}
+  .sn-box{width:100%;max-width:360px;background:#12161F;border:1px solid #232838;border-radius:16px;padding:26px 20px;box-sizing:border-box}
+  .sn-logo{text-align:center;font-size:22px;font-weight:800;color:#78B89A;margin-bottom:4px}
+  .sn-sub{text-align:center;color:#8A93A6;font-size:12.5px;margin-bottom:18px}
+  .sn-tabs{display:flex;background:#202521;border-radius:10px;padding:3px;margin-bottom:16px}
+  .sn-tab{flex:1;text-align:center;padding:8px 0;border-radius:8px;font-size:13.5px;color:#8A93A6;cursor:pointer}
+  .sn-tab.active{background:#78B89A;color:#06140E;font-weight:700}
+  .sn-field{width:100%;padding:11px 12px;margin-bottom:10px;border-radius:9px;border:1px solid #232838;background:#202521;color:#EAEFF7;font-size:14px;box-sizing:border-box;font-family:'Vazirmatn',sans-serif}
+  .sn-btn{width:100%;padding:11px 0;border-radius:9px;border:none;background:#78B89A;color:#06140E;font-weight:800;font-size:14.5px;cursor:pointer;margin-top:4px}
+  .sn-btn.secondary{background:#1C2233;color:#EAEFF7;border:1px solid #2C3348}
+  .sn-err{color:#FF5C72;font-size:12.5px;text-align:center;min-height:16px;margin:4px 0}
+  .sn-plan{border:1px solid #232838;border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer}
+  .sn-plan.rec{border-color:#78B89A}
+  .sn-plan-top{display:flex;justify-content:space-between;font-size:14px;font-weight:700;color:#EAEFF7}
+  .sn-plan-price{color:#78B89A;font-size:13px;margin-top:3px}
+  .sn-trial-banner{position:fixed;top:0;left:0;right:0;z-index:99998;background:#1C2233;color:#f5c542;text-align:center;font-size:12px;padding:6px 10px;font-family:'Vazirmatn',sans-serif}
+  .sn-loading{text-align:center;color:#8A93A6;font-size:13px}
+</style>
 
+<div id="snGate" class="hidden">
+  <div class="sn-box" id="snAuthBox">
+    <div class="sn-logo">سهام یکم</div>
+    <div class="sn-sub">تحلیل‌گر لحظه‌ای بازار</div>
+    <div class="sn-tabs">
+      <div class="sn-tab active" id="snTabLogin">ورود</div>
+      <div class="sn-tab" id="snTabRegister">ثبت‌نام</div>
+    </div>
+    <input class="sn-field" id="snEmail" type="email" placeholder="ایمیل" />
+    <input class="sn-field" id="snPass" type="password" placeholder="رمز عبور" />
+    <div class="sn-err" id="snAuthErr"></div>
+    <button class="sn-btn" id="snAuthSubmit">ورود</button>
+  </div>
+
+  <div class="sn-box" id="snSubBox" style="display:none">
+    <div class="sn-logo">تمدید اشتراک</div>
+    <div class="sn-sub" id="snSubMsg">مهلت رایگان شما به پایان رسیده</div>
+    <div class="sn-plan rec" id="snPlan1">
+      <div class="sn-plan-top"><span>یک ماهه</span><span>۵۰۰,۰۰۰ تومان</span></div>
+    </div>
+    <div class="sn-err" id="snSubErr"></div>
+    <button class="sn-btn secondary" id="snRecheckBtn">پرداخت کردم، بررسی وضعیت</button>
+    <button class="sn-btn secondary" id="snLogoutBtn" style="margin-top:8px;background:transparent;color:#8A93A6">خروج از حساب</button>
+  </div>
+
+  <div class="sn-box" id="snLoadingBox">
+    <div class="sn-loading">در حال بررسی حساب کاربری...</div>
+  </div>
+</div>
+<div class="sn-trial-banner" id="snTrialBanner" style="display:none"></div>
+
+<script>
+(function(){
+  var SN_API = 'https://sahmyekom.ir/backend/api'; // بعد از آپلود بک‌اند، در صورت تغییر دامنه اصلاح شود
+  var gate = document.getElementById('snGate');
+  var authBox = document.getElementById('snAuthBox');
+  var subBox = document.getElementById('snSubBox');
+  var loadingBox = document.getElementById('snLoadingBox');
+  var trialBanner = document.getElementById('snTrialBanner');
+  var isRegisterMode = false;
+
+  function showOnly(box){
+    [authBox, subBox, loadingBox].forEach(function(b){ b.style.display = 'none'; });
+    box.style.display = 'block';
+    gate.classList.remove('hidden');
+  }
+  function hideGate(){ gate.classList.add('hidden'); }
+
+  function getToken(){ return localStorage.getItem('sn_token') || ''; }
+  function setToken(t){ localStorage.setItem('sn_token', t); }
+  function clearToken(){ localStorage.removeItem('sn_token'); }
+
+  // شناسه یکتای دستگاه — تلاش با پلاگین ماندگار، در غیر این صورت افتادن به localStorage
+  function getDeviceId(){
+    return new Promise(function(resolve){
+      try {
+        // اول: شناسه‌ی ماندگار اندروید (بعد از پاک کردن اطلاعات یا نصب دوباره هم ثابت می‌ماند)
+        var dev = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Device;
+        if (dev && dev.getId) {
+          dev.getId().then(function(r){ resolve((r && r.identifier) ? 'dev-' + r.identifier : fallbackDeviceId()); }).catch(function(){ resolve(fallbackDeviceId()); });
+          return;
+        }
+        var plug = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.PersistentUuid;
+        if (plug && plug.get) {
+          plug.get().then(function(r){ resolve((r && (r.uuid || r.value)) || fallbackDeviceId()); }).catch(function(){ resolve(fallbackDeviceId()); });
+          return;
+        }
+      } catch(e){}
+      resolve(fallbackDeviceId());
+    });
+  }
+  function fallbackDeviceId(){
+    var id = localStorage.getItem('sn_device_id');
+    if (!id) {
+      id = 'web-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+      localStorage.setItem('sn_device_id', id);
+    }
+    return id;
+  }
+
+  function apiPost(path, body, auth){
+    var headers = {'Content-Type':'application/json'};
+    if (auth) headers['Authorization'] = 'Bearer ' + getToken();
+    return fetch(SN_API + path, {method:'POST', headers:headers, body: JSON.stringify(body||{})})
+      .then(function(r){ return r.json().then(function(d){ return {ok:r.ok, data:d}; }); });
+  }
+  function apiGet(path){
+    return fetch(SN_API + path, {headers:{'Authorization':'Bearer ' + getToken()}})
+      .then(function(r){ return r.json().then(function(d){ return {ok:r.ok, data:d}; }); });
+  }
+
+  function applyStatus(status){
+    if (status.status === 'active') {
+      trialBanner.style.display = 'none';
+      hideGate();
+    } else if (status.status === 'trial') {
+      var end = new Date(status.trial_ends_at);
+      trialBanner.style.display = 'block';
+      updateTrialBanner(end);
+      hideGate();
+    } else {
+      trialBanner.style.display = 'none';
+      showOnly(subBox);
+    }
+  }
+
+  function updateTrialBanner(end){
+    function tick(){
+      var diff = end - new Date();
+      if (diff <= 0) { location.reload(); return; }
+      var h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000);
+      trialBanner.textContent = '⏳ نسخه آزمایشی — ' + h + ' ساعت و ' + m + ' دقیقه باقی مانده';
+    }
+    tick();
+    setInterval(tick, 60000);
+  }
+
+  function checkStatus(){
+    if (!getToken()) { showOnly(authBox); return; }
+    showOnly(loadingBox);
+    apiGet('/status.php').then(function(res){
+      if (!res.ok) { clearToken(); showOnly(authBox); return; }
+      applyStatus(res.data.status);
+    }).catch(function(){
+      // در صورت قطعی شبکه/بک‌اند، دسترسی باز نمی‌شود؛ فقط امکان تلاش دوباره نشان داده می‌شود
+      showOnly(loadingBox);
+      loadingBox.innerHTML = '<div class="sn-loading">اتصال به سرور برقرار نشد. اینترنت را بررسی کنید.</div><button class="sn-btn secondary" id="snRetryBtn" style="margin-top:12px">تلاش دوباره</button>';
+      document.getElementById('snRetryBtn').onclick = function(){
+        loadingBox.innerHTML = '<div class="sn-loading">در حال بررسی حساب کاربری...</div>';
+        checkStatus();
+      };
+    });
+  }
+
+  // --- تب‌های ورود/ثبت‌نام ---
+  document.getElementById('snTabLogin').onclick = function(){
+    isRegisterMode = false;
+    this.classList.add('active');
+    document.getElementById('snTabRegister').classList.remove('active');
+    document.getElementById('snAuthSubmit').textContent = 'ورود';
+  };
+  document.getElementById('snTabRegister').onclick = function(){
+    isRegisterMode = true;
+    this.classList.add('active');
+    document.getElementById('snTabLogin').classList.remove('active');
+    document.getElementById('snAuthSubmit').textContent = 'ثبت‌نام';
+  };
+
+  document.getElementById('snAuthSubmit').onclick = function(){
+    var email = document.getElementById('snEmail').value.trim();
+    var pass = document.getElementById('snPass').value;
+    var errEl = document.getElementById('snAuthErr');
+    errEl.textContent = '';
+    if (!email || !pass) { errEl.textContent = 'ایمیل و رمز عبور را وارد کنید'; return; }
+    getDeviceId().then(function(deviceId){
+      var path = isRegisterMode ? '/register.php' : '/login.php';
+      apiPost(path, {email:email, password:pass, device_uuid:deviceId}, false).then(function(res){
+        if (!res.ok) { errEl.textContent = res.data.error || 'خطایی رخ داد'; return; }
+        setToken(res.data.token);
+        applyStatus(res.data.status);
+      }).catch(function(){ errEl.textContent = 'خطا در اتصال به سرور'; });
+    });
+  };
+
+  // --- انتخاب پلن و پرداخت ---
+  function startPayment(plan){
+    var errEl = document.getElementById('snSubErr');
+    errEl.textContent = '';
+    apiPost('/payment_request.php', {plan: plan}, true).then(function(res){
+      if (!res.ok) { errEl.textContent = res.data.error || 'خطا در اتصال به درگاه پرداخت'; return; }
+      var url = res.data.payment_url;
+      try {
+        var u = new URL(url);
+        if (u.protocol !== 'https:' || !/(^|\.)zibal\.ir$/.test(u.hostname)) { errEl.textContent = 'آدرس پرداخت نامعتبر است'; return; }
+      } catch (e) { errEl.textContent = 'آدرس پرداخت نامعتبر است'; return; }
+      if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser) {
+        window.Capacitor.Plugins.Browser.open({ url: url });
+      } else {
+        window.open(url, '_system');
+      }
+    }).catch(function(){ errEl.textContent = 'خطا در اتصال به سرور'; });
+  }
+  document.getElementById('snPlan1').onclick = function(){ startPayment('1month'); };
+  document.getElementById('snRecheckBtn').onclick = checkStatus;
+  document.getElementById('snLogoutBtn').onclick = function(){ clearToken(); showOnly(authBox); };
+
+  // اجرای اولیه
+  checkStatus();
+})();
+</script>
 </body>
 </html>
